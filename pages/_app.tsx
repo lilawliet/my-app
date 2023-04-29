@@ -1,4 +1,5 @@
 import '@/styles/globals.css'
+import '@/styles/github-corner.css'
 import 'src/i18n'
 
 import { NextPage } from 'next'
@@ -31,7 +32,11 @@ const GateWay = ({ children }: { children: ReactElement }) => {
   }
 
   return (
-    <PersistGate persistor={persistor} onBeforeLift={init}>
+    <PersistGate
+      loading={<div>loading...</div>}
+      persistor={persistor}
+      onBeforeLift={init}
+    >
       {children}
     </PersistGate>
   )

@@ -3,6 +3,8 @@ import { ChipItem, LinkItem } from 'antd-mobile/es/components/footer'
 import { ReactElement } from 'react'
 import { useTranslation } from 'react-i18next'
 
+import { GithubCornerRight } from '../components/GithubCornerRight'
+
 export default function Layout({
   children,
   back = null,
@@ -44,20 +46,27 @@ export default function Layout({
   ]
 
   return (
-    <>
-      <NavBar back={back} backArrow={backArrow} onBack={onBack}>
+    <div className=" min-h-screen">
+      <NavBar
+        back={back}
+        backArrow={backArrow}
+        onBack={onBack}
+        className="bg-red min-w-full"
+      >
         {t(title ?? '')}
+        <a href="https://github.com/lilawliet" aria-label="Follow my github">
+          <div className=" absolute right-0 top-0 w-8 h-8 bg-red-400">
+            <GithubCornerRight />
+          </div>
+        </a>
       </NavBar>
-      {/* <a href="https://github.com/lilawliet" aria-label="Follow my github">
-        <GithubCornerRight />
-      </a> */}
-      <main>{children}</main>
+      <main className=" flex-grow">{children}</main>
       <Footer
         label={t('no more')}
         content="@ 2023-2024 demo.com All rights reserved"
         links={links}
         chips={chips}
       ></Footer>
-    </>
+    </div>
   )
 }
