@@ -7,7 +7,7 @@
     "build": "cross-env NODE_ENV=production next build",
     "start": "next start",
     "lint": "next lint",
-    "export": "next export && next-image-export-optimizer"
+    "export": "cross-env NODE_ENV=production next build &&  next-image-export-optimizer"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.5",
