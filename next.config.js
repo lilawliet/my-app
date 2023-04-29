@@ -6,18 +6,16 @@ let assetPrefix = ``
 
 const isGithubActions = process.env.GITHUB_ACTIONS || false
 
-console.log(isGithubActions)
 if (isGithubActions) {
   const repo = process.env.GITHUB_REPOSITORY.replace(/.*?\//, '')
 
   assetPrefix = `/${repo}/`
-  console.log(assetPrefix)
 }
 
 const nextConfig = {
   reactStrictMode: true,
   transpilePackages: ['antd-mobile'],
-  assetPrefix,
+  assetPrefix: assetPrefix,
   reactStrictMode: true,
   images: {
     unoptimized: true,
