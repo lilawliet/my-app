@@ -1,6 +1,5 @@
-import { List } from 'antd-mobile'
+import { Image, List } from 'antd-mobile'
 import Head from 'next/head'
-import Image from 'next/image'
 import { ReactElement } from 'react'
 import { useTranslation } from 'react-i18next'
 
@@ -25,12 +24,17 @@ const Page: NextPageWithLayout = () => {
           <List.Item key={index}>
             <span className=" font-bold text-2xl ">{project.name}</span>
             <Image
-              src="/images/Bessage/chat-main.png"
-              width={100}
-              height={200}
+              src="/Bessage/chat-main.png"
               alt={''}
               className=" w-full"
+              fit="cover"
             ></Image>
+            <video className=" w-full" style={{ width: '100%' }}>
+              <source
+                src="/Bessage/WeChat_20230430002356.webm"
+                type="video/mp4"
+              />
+            </video>
           </List.Item>
         ))}
       </List>

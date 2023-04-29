@@ -28,6 +28,7 @@ const nextConfig = {
     unoptimized: true,
     // loader: 'akamai',
   },
+  output: 'export',
 }
 
 module.exports = nextConfig
