@@ -6,7 +6,8 @@
     "dev": "cross-env NODE_ENV=development next dev",
     "build": "cross-env NODE_ENV=production next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "export": "next export && next-image-export-optimizer"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.5",
@@ -23,6 +24,7 @@
     "eslint-plugin-simple-import-sort": "^10.0.0",
     "i18next": "^22.4.15",
     "next": "13.3.1",
+    "next-image-export-optimizer": "^1.6.0",
     "postcss": "8.4.23",
     "react": "18.2.0",
     "react-dom": "18.2.0",
