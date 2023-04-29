@@ -1,4 +1,4 @@
-import { Footer, NavBar } from 'antd-mobile'
+import { Footer, SafeArea } from 'antd-mobile'
 import { ChipItem, LinkItem } from 'antd-mobile/es/components/footer'
 import { ReactElement } from 'react'
 import { useTranslation } from 'react-i18next'
@@ -7,12 +7,6 @@ import { GithubCornerRight } from '../components/GithubCornerRight'
 
 export default function Layout({
   children,
-  back = null,
-  backArrow = null,
-  onBack = () => {
-    window.history.back()
-  },
-  title,
 }: {
   children?: ReactElement
   back?: ReactElement | null
@@ -46,27 +40,27 @@ export default function Layout({
   ]
 
   return (
-    <div className=" min-h-screen">
-      <NavBar
-        back={back}
-        backArrow={backArrow}
-        onBack={onBack}
-        className="bg-red min-w-full"
-      >
-        {t(title ?? '')}
-        <a href="https://github.com/lilawliet" aria-label="Follow my github">
-          <div className=" absolute right-0 top-0 w-8 h-8 bg-red-400">
+    <>
+      <div className="bg-[#ace0ff]">
+        <SafeArea position="top" />
+      </div>
+      <div>
+        <div className="flex justify-end">
+          <a href="https://github.com/lilawliet" aria-label="Follow my github">
             <GithubCornerRight />
-          </div>
-        </a>
-      </NavBar>
-      <main className=" flex-grow">{children}</main>
-      <Footer
-        label={t('no more')}
-        content="@ 2023-2024 demo.com All rights reserved"
-        links={links}
-        chips={chips}
-      ></Footer>
-    </div>
+          </a>
+        </div>
+        <main>{children}</main>
+        <Footer
+          label={t('no more')}
+          content="@ 2023-2024 demo.com All rights reserved"
+          links={links}
+          chips={chips}
+        ></Footer>
+      </div>
+      <div style={{ background: '#ffcfac' }}>
+        <SafeArea position="bottom" />
+      </div>
+    </>
   )
 }

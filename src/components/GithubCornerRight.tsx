@@ -1,11 +1,11 @@
 export const GithubCornerRight = () => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
-    width="80"
-    height="80"
+    width="60"
+    height="60"
     viewBox="0 0 250 250"
     fill="#fff"
-    className="absolute top-0 right-0 github-corner"
+    className="github-corner"
   >
     <path d="M0 0l115 115h15l12 27 108 108V0z" fill="#151513" />
     <path
