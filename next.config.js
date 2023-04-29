@@ -24,6 +24,10 @@ const nextConfig = {
   transpilePackages: ['antd-mobile'],
   assetPrefix,
   // basePath,
+  reactStrictMode: true,
+  images: {
+    unoptimized: true,
+  },
 }
 
 module.exports = nextConfig
