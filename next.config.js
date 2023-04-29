@@ -14,7 +14,7 @@ if (isGithubActions) {
   // 去掉 `<owner>/`
   const repo = process.env.GITHUB_REPOSITORY.replace(/.*?\//, '')
 
-  assetPrefix = `/${repo}/static/`
+  assetPrefix = `/${repo}/`
   // basePath = `/${repo}`
 }
 // console.log(basePath)
