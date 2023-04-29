@@ -1,3 +1,35 @@
 {
-  "extends": "next/core-web-vitals"
+  "plugins": ["@typescript-eslint", "simple-import-sort", "unused-imports"],
+  "extends": [
+    "next/core-web-vitals",
+    "plugin:@typescript-eslint/recommended",
+    "prettier"
+  ],
+  "rules": {
+    // 插件 eslint-plugin-simple-import-sort 相关配置
+    "simple-import-sort/imports": "error",
+    "simple-import-sort/exports": "error",
+    "import/first": "error",
+    "import/newline-after-import": "error",
+    "import/no-duplicates": "error",
+
+    // 插件 eslint-plugin-unused-imports 相关配置
+    "no-unused-vars": "off", // or "@typescript-eslint/no-unused-vars": "off",
+    "unused-imports/no-unused-imports": "error",
+    "unused-imports/no-unused-vars": [
+      "warn",
+      {
+        "vars": "all",
+        "varsIgnorePattern": "^_",
+        "args": "after-used",
+        "argsIgnorePattern": "^_"
+      }
+    ],
+
+    // 其他主要配置
+    "@typescript-eslint/ban-types": 0,
+    "@typescript-eslint/no-unused-vars": "error",
+    "@typescript-eslint/no-explicit-any": 0,
+    "prefer-const": "warn"
+  }
 }
