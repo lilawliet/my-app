@@ -23,6 +23,7 @@ const nextConfig = {
   },
   assetPrefix: '.',
   reactStrictMode: true,
+  distDir: 'build',
   images: {
     unoptimized: true,
     // loader: 'akamai',
