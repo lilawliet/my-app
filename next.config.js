@@ -15,12 +15,6 @@ if (isGithubActions) {
 const nextConfig = {
   reactStrictMode: true,
   transpilePackages: ['antd-mobile'],
-  exportPathMap: async function () {
-    return {
-      '/': { page: '/' },
-      '/images': { page: '/images' },
-    }
-  },
   assetPrefix,
   reactStrictMode: true,
   images: {
