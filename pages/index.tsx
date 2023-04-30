@@ -23,7 +23,7 @@ const Page: NextPageWithLayout = () => {
           <List.Item key={index}>
             <span className=" font-bold text-2xl ">{project.name}</span>
             <Image
-              src="/Bessage/chat-main.png"
+              src="/my-app/Bessage/chat-main.png"
               alt={''}
               className=" w-full"
               fit="cover"
@@ -35,7 +35,7 @@ const Page: NextPageWithLayout = () => {
               style={{ width: '100%' }}
             >
               <source
-                src="/Bessage/WeChat_20230430002356.webm"
+                src="/my-app/Bessage/WeChat_20230430002356.webm"
                 type="video/mp4"
               />
               Your browser does not support the video tag.
