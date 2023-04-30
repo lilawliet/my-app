@@ -1,37 +1,37 @@
 import { createSlice } from '@reduxjs/toolkit'
 
 // import { ChatCompletionResponseMessage } from 'openai'
-import { LOCALE } from '@/src/i18n'
+import { LANGUAGE } from '@/src/i18n'
 
 import { updateVersion } from './actions'
 
 export type GlobalState = {
   version: string
-  locale: LOCALE
+  language: LANGUAGE
   // messages: ChatCompletionResponseMessage[] // chatGPT 上下文
 }
 
 const initialState: GlobalState = {
   version: process.env.NEXT_PUBLIC_VERSION,
-  locale: process.env.NEXT_PUBLIC_LOCALE as LOCALE,
+  language: process.env.NEXT_PUBLIC_LOCALE as LANGUAGE,
   // messages: [],
 }
 const slice = createSlice({
   name: 'global',
   initialState,
   reducers: {
-    changeLocale(
+    changeLanguage(
       state,
       action: {
         payload: {
-          locale: LOCALE
+          language: LANGUAGE
         }
       }
     ) {
       const {
-        payload: { locale },
+        payload: { language },
       } = action
-      state.locale = locale
+      state.language = language
     },
     clean(state) {
       state = initialState

@@ -1,18 +1,19 @@
 import { Image, List } from 'antd-mobile'
 import Head from 'next/head'
-import { ReactElement } from 'react'
+import React, { ReactElement } from 'react'
 import { useTranslation } from 'react-i18next'
 
 import { ASSEST_PREFIX } from '@/constant/config'
 import { Projects } from '@/constant/projects'
-import Layout from '@/src/layouts/base'
+import Layout from '@/src/layouts/Base'
 
 import { NextPageWithLayout } from './_app'
 
-const title = 'demo'
+const title = 'Home'
 
 const Page: NextPageWithLayout = () => {
   const { t } = useTranslation()
+
   return (
     <div className=" w-full bg-red-50">
       <Head>

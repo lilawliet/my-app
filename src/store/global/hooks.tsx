@@ -3,7 +3,7 @@ import { useCallback } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useDispatch } from 'react-redux'
 
-import { LOCALE } from '@/src/i18n'
+import { LANGUAGE } from '@/src/i18n'
 
 // import OPEN_AI from '@/src/utils/openai'
 import { useAppSelector } from '../hooks'
@@ -17,9 +17,9 @@ export function useUpdateLocaleCallback() {
   const dispatch = useDispatch()
   const { i18n } = useTranslation()
   return useCallback(
-    (locale: LOCALE) => {
-      i18n.changeLanguage(locale)
-      dispatch(globalActions.changeLocale({ locale }))
+    (language: LANGUAGE) => {
+      i18n.changeLanguage(language)
+      dispatch && dispatch(globalActions.changeLanguage({ language }))
     },
     [dispatch, i18n]
   )
