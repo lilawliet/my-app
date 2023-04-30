@@ -29,11 +29,17 @@ const Page: NextPageWithLayout = () => {
               className=" w-full"
               fit="cover"
             ></Image>
-            <video className=" w-full" style={{ width: '100%' }}>
+            <video
+              controls
+              autoPlay
+              className=" w-full"
+              style={{ width: '100%' }}
+            >
               <source
                 src="/Bessage/WeChat_20230430002356.webm"
                 type="video/mp4"
               />
+              Your browser does not support the video tag.
             </video>
           </List.Item>
         ))}
