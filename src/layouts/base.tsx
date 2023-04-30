@@ -1,9 +1,9 @@
-import { Footer, SafeArea } from 'antd-mobile'
+import { Footer } from 'antd-mobile'
 import { ChipItem, LinkItem } from 'antd-mobile/es/components/footer'
 import { ReactElement } from 'react'
 import { useTranslation } from 'react-i18next'
 
-import { GithubCornerRight } from '../components/GithubCornerRight'
+import { Header } from '../components/Header'
 
 export default function Layout({
   children,
@@ -41,15 +41,8 @@ export default function Layout({
 
   return (
     <>
-      <div className="bg-[#ace0ff]">
-        <SafeArea position="top" />
-      </div>
       <div>
-        <div className="flex justify-end">
-          <a href="https://github.com/lilawliet" aria-label="Follow my github">
-            <GithubCornerRight />
-          </a>
-        </div>
+        <Header />
         <main>{children}</main>
         <Footer
           label={t('no more')}
@@ -57,9 +50,6 @@ export default function Layout({
           links={links}
           chips={chips}
         ></Footer>
-      </div>
-      <div style={{ background: '#ffcfac' }}>
-        <SafeArea position="bottom" />
       </div>
     </>
   )
