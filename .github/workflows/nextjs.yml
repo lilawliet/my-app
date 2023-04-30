@@ -79,8 +79,8 @@ jobs:
         run: ${{ steps.detect-package-manager.outputs.manager }} global add pm2@latest
       - name: Check pm2 version
         run: pm2 -V
-      - name: Stop all pm2 process
-        run: pm2 stop all
+      # - name: Stop all pm2 process
+      #   run: pm2 stop all
       - name: Start
         run: pm2 start ${{ steps.detect-package-manager.outputs.runner }} --name "my-app" -- start
       # - name: Upload artifact
