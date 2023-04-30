@@ -5,7 +5,6 @@ import { useTranslation } from 'react-i18next'
 
 import { Projects } from '@/constant/projects'
 import Layout from '@/src/layouts/base'
-import imageLoader from '@/src/utils/image-loader'
 
 import { NextPageWithLayout } from './_app'
 
@@ -13,19 +12,12 @@ const title = 'demo'
 
 const Page: NextPageWithLayout = () => {
   const { t } = useTranslation()
-  const isProd = process.env.NODE_ENV === 'production'
-  const repo = process.env.NEXT_GITHUB_REPOSITORY
   return (
     <div className=" w-full bg-red-50">
       <Head>
         <title>{t(title)}</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <div>
-        {isProd}
-        {repo}
-        {imageLoader({ src: 'test' })}
-      </div>
       <List>
         {Projects.map((project, index) => (
           <List.Item key={index}>

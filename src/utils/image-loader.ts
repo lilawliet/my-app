@@ -1,5 +1,5 @@
 const isProd = process.env.NODE_ENV === 'production'
-const repo = process.env.NEXT_GITHUB_REPOSITORY
+const repo = process.env.NEXT_PUBLIC_GITHUB_REPOSITORY
 
 export default function imageLoader({
   src,
@@ -10,7 +10,5 @@ export default function imageLoader({
   width?: number
   quality?: number
 }) {
-  const url = isProd ? `/${repo}/${src}?w=${width}&q=${quality || 75}` : src
-  console.log(url)
-  return url
+  return isProd ? `/${repo}/${src}?w=${width}&q=${quality || 75}` : src
 }
