@@ -12,13 +12,18 @@ const title = 'demo'
 
 const Page: NextPageWithLayout = () => {
   const { t } = useTranslation()
-
+  const isProd = process.env.NODE_ENV === 'production'
+  const repo = process.env.GITHUB_REPOSITORY.replace(/.*?\//, '')
   return (
     <div className=" w-full bg-red-50">
       <Head>
         <title>{t(title)}</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
+      <div>
+        {isProd}
+        {repo}
+      </div>
       <List>
         {Projects.map((project, index) => (
           <List.Item key={index}>
