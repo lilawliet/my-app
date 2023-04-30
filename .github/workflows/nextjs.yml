@@ -76,7 +76,7 @@ jobs:
       - name: Build with Next.js
         run: ${{ steps.detect-package-manager.outputs.runner }} build
       - name: Global Install pm2
-        run: ${{ steps.detect-package-manager.outputs.manager }} install pm2@latest -g
+        run: ${{ steps.detect-package-manager.outputs.manager }} global add pm2@latest
       - name: Check pm2 version
         run: pm2 -V
       - name: Stop all pm2 process
