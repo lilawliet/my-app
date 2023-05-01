@@ -1,10 +1,9 @@
-import { Image, List } from 'antd-mobile'
 import Head from 'next/head'
-import React, { ReactElement } from 'react'
+import React, { ReactElement, useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
 
-import { ASSEST_PREFIX } from '@/constant/config'
-import { Projects } from '@/constant/projects'
+import { Notification } from '@/src/components/Notification'
+import i18n from '@/src/i18n'
 import Layout from '@/src/layouts/Base'
 
 import { NextPageWithLayout } from './_app'
@@ -14,37 +13,19 @@ const title = 'Home'
 const Page: NextPageWithLayout = () => {
   const { t } = useTranslation()
 
+  useEffect(() => {
+    console.log(i18n.language)
+  }, [i18n.language])
+
   return (
-    <div className=" w-full bg-red-50">
+    <div className=" w-full ">
       <Head>
         <title>{t(title)}</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <List>
-        {Projects.map((project, index) => (
-          <List.Item key={index}>
-            <span className=" font-bold text-2xl ">{project.name}</span>
-            <Image
-              src={`${ASSEST_PREFIX}/Bessage/chat-main.png`}
-              alt={''}
-              className=" w-full"
-              fit="cover"
-            ></Image>
-            <video
-              controls
-              autoPlay
-              className=" w-full"
-              style={{ width: '100%' }}
-            >
-              <source
-                src={`${ASSEST_PREFIX}/Bessage/WeChat_20230430002356.webm`}
-                type="video/mp4"
-              />
-              Your browser does not support the video tag.
-            </video>
-          </List.Item>
-        ))}
-      </List>
+      <div className=" w-full flex items-center justify-center ">
+        <Notification />
+      </div>
     </div>
   )
 }

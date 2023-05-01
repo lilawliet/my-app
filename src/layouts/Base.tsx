@@ -62,7 +62,9 @@ export default function Layout({
       <GateWay>
         <>
           <Header />
-          <main className={`${inter.className}`}>{children}</main>
+          <main className={`${inter.className} md:mt-20 mt-16 md:p-4 p-2`}>
+            {children}
+          </main>
           <Footer
             label={t('no more')}
             content="@ 2023-2024 demo.com All rights reserved"
