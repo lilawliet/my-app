@@ -1,8 +1,7 @@
 import { Footer } from 'antd-mobile'
-import { ChipItem, LinkItem } from 'antd-mobile/es/components/footer'
+import { ChipItem } from 'antd-mobile/es/components/footer'
 import { Inter } from 'next/font/google'
-import React, { ReactElement, useEffect } from 'react'
-import { useTranslation } from 'react-i18next'
+import React, { ReactElement } from 'react'
 import { Provider } from 'react-redux'
 
 import { GateWay } from '../components/Core/Gateway'
@@ -20,18 +19,7 @@ export default function Layout({
   onBack?: () => void
   title?: string
 }) {
-  const { t } = useTranslation()
-
-  const scrollHandler = () => {
-    console.log(document.body.scrollTop)
-    console.log('main', document.getElementById('main')?.scrollTop)
-  }
-
-  useEffect(() => {
-    window.addEventListener('scroll', scrollHandler, true)
-
-    return () => window.removeEventListener('scroll', scrollHandler, false)
-  }, [])
+  // const { t } = useTranslation()
 
   // const chips: ChipItem[] = [
   //   {
@@ -46,16 +34,16 @@ export default function Layout({
   // ]
   const chips: ChipItem[] = []
 
-  const links: LinkItem[] = [
-    // {
-    //   text: 'github',
-    //   href: 'https://github.com/lilawliet',
-    // },
-    {
-      text: t('usage policy'),
-      href: 'https://openai.com/policies/usage-policies',
-    },
-  ]
+  // const links: LinkItem[] = [
+  //   // {
+  //   //   text: 'github',
+  //   //   href: 'https://github.com/lilawliet',
+  //   // },
+  //   {
+  //     text: t('usage policy'),
+  //     href: 'https://openai.com/policies/usage-policies',
+  //   },
+  // ]
 
   return (
     <Provider store={store}>
@@ -66,9 +54,9 @@ export default function Layout({
             {children}
           </main>
           <Footer
-            label={t('no more')}
+            // label={t('no more')}
             content="@ 2023-2024 demo.com All rights reserved"
-            links={links}
+            // links={links}
             chips={chips}
           ></Footer>
         </>

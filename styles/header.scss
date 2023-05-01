@@ -1,0 +1,38 @@
+.separator {
+  @apply shadow-sm;
+  height: 1px;
+  border: none;
+  background-color: transparent;
+  background-image: linear-gradient(
+    90deg,
+    rgba(0, 0, 0, 0),
+    rgba(100, 100, 100, 0.3),
+    rgba(0, 0, 0, 0)
+  );
+
+  background-repeat: no-repeat;
+  background-position: 0 0, 0 1px;
+  background-size: 100% 1px;
+}
+
+// 头部 - 图标
+.icon {
+  @apply cursor-pointer;
+  fill: #a0aec0;
+  transition: fill 150ms;
+}
+
+.icon:hover {
+  fill: #718096;
+  transition: fill 150ms;
+}
+
+// 顶部通知栏
+.notification {
+  @apply select-none cursor-pointer md:text-2xl text-lg md:mt-4 mt-2 tracking-wider font-bold  text-center bg-white shadow-sm px-4 py-2 rounded;
+}
+
+.notification:hover {
+  animation: bg-white-to-gray 150ms;
+  animation-fill-mode: forwards;
+}

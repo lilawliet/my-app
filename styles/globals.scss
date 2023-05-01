@@ -1,7 +1,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import './animation';
 
+// 监听浏览器主题并切换背景色
 // :root {
 //   --foreground-rgb: 0, 0, 0;
 //   --background-start-rgb: 214, 219, 220;
@@ -26,55 +28,29 @@
 //     rgb(var(--background-start-rgb));
 // }
 
-.icon {
-  @apply cursor-pointer;
-  fill: #a0aec0;
-  transition: fill 300ms;
-}
-
-.icon:hover {
-  fill: #718096;
-}
-
-// 顶部通知栏
-.notification {
-  @apply cursor-pointer md:text-2xl text-lg md:mt-4 mt-2 tracking-wider font-bold  text-center bg-white shadow-sm px-2 py-1 rounded;
-}
-
-.notification:hover {
-  animation: bg-white-to-gray 300ms;
-  animation-fill-mode: forwards;
-}
-
 // 三个省略号等待动画
 .waiting::after {
   animation: waiting 10s infinite;
   content: '';
 }
 
-@keyframes bg-white-to-gray {
-  0% {
-    @apply shadow-sm;
-    background-color: white;
-  }
-  100% {
-    @apply shadow-none;
-    background-color: rgb(250 250 250);
-  }
+.button {
+  @apply cursor-pointer h-10 px-4 flex items-center justify-center text-base rounded-md shadow-sm font-semibold border min-w-[6rem];
+  transition: background-color 150ms, border-color 150ms, color 150ms;
 }
 
-@keyframes waiting {
-  0%,
-  100% {
-    content: '';
-  }
-  25% {
-    content: '.';
-  }
-  50% {
-    content: '..';
-  }
-  75% {
-    content: '...';
-  }
+.button.primary:hover {
+  @apply bg-white border-black text-black;
+  transition: background-color 150ms, border-color 150ms, color 150ms;
+}
+.button.secondary:hover {
+  @apply bg-white border-black text-black;
+  transition: background-color 150ms, border-color 150ms, color 150ms;
+}
+
+.button.primary {
+  @apply bg-black text-white;
+}
+.button.secondary {
+  @apply bg-white text-gray-600;
 }

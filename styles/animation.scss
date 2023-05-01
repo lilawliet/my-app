@@ -1,0 +1,28 @@
+// 背景色从白色到灰色的动画
+@keyframes bg-white-to-gray {
+  0% {
+    @apply shadow-sm;
+    background-color: white;
+  }
+  100% {
+    @apply shadow-none;
+    background-color: rgb(250 250 250);
+  }
+}
+
+// 三个省略号动画
+@keyframes waiting {
+  0%,
+  100% {
+    content: '';
+  }
+  25% {
+    content: '.';
+  }
+  50% {
+    content: '..';
+  }
+  75% {
+    content: '...';
+  }
+}

@@ -1,4 +1,5 @@
 import '@/styles/globals.scss'
+import '@/styles/header.scss'
 import '@/styles/github-corner.css'
 import 'src/i18n'
 
