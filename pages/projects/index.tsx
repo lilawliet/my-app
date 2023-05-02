@@ -35,7 +35,7 @@ const Page: NextPageWithLayout = () => {
     //     Your browser does not support the video tag.
     //   </video>
     // </List.Item>
-    <div key={index} className={`${project.position} card`}>
+    <div key={index} className={` ${project.position} card`}>
       <div className="announce opacity-80 h-full flex-1">
         <div className="bg-card-bg w-full h-full flex flex-col md:gap-4 gap-2 md:p-4 p-2 relative">
           <span className=" font-extrabold tracking-widest text-lg text-white">
@@ -44,6 +44,7 @@ const Page: NextPageWithLayout = () => {
               {project.company && `  [${Company[project.company]}]`}
             </span>
           </span>
+
           <span className=" text-white font-light text-md">
             {project.description}
           </span>
