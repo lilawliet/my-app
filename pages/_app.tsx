@@ -1,6 +1,8 @@
+import '@/styles/components.scss'
+import '@/styles/github-corner.css'
 import '@/styles/globals.scss'
 import '@/styles/header.scss'
-import '@/styles/github-corner.css'
+import '@/styles/projects.scss'
 import 'src/i18n'
 
 import { NextPage } from 'next'

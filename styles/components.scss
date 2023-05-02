@@ -1,0 +1,9 @@
+// Notification 顶部通知栏
+.notification {
+  @apply select-none cursor-pointer md:text-2xl text-lg md:mt-4 mt-2 tracking-wider font-bold text-center bg-white shadow-sm px-4 py-2 rounded;
+}
+
+.notification:hover {
+  animation: bg-white-to-gray 150ms;
+  animation-fill-mode: forwards;
+}

@@ -10,7 +10,7 @@ export const Notification = () => {
       onClick={() => window.open('https://github.com/lilawliet/my-app')}
     >
       {t(
-        'One-stack deployment of pure static personal website based on Nuxt Js and github workflows'
+        'One-stack deployment of pure static personal website based on Next Js and github workflows'
       )}
     </div>
   )
