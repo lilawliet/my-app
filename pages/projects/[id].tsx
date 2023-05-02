@@ -5,7 +5,7 @@ import Layout from '@/src/layouts/Base'
 
 import { NextPageWithLayout } from '../_app'
 
-export async function getServerSideProps(context: any) {
+export async function getInitialProps(context: any) {
   const { id } = context.query
 
   return {
