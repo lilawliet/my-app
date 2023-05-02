@@ -26,10 +26,14 @@ module.exports = {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
         'gradient-conic':
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
+        'border-hard': withOpacityValue('--color-border-hard'),
+        'border-soft': 'var(--color-border-soft)',
       },
       backgroundColor: {
         'btn-primary': withOpacityValue('--color-btn-primary'),
         'btn-secondary': withOpacityValue('--color-btn-secondary'),
+        'border-hard': withOpacityValue('--color-border-hard'),
+        'border-soft': 'var(--color-border-soft)',
       },
       borderColor: {
         'border-hard': withOpacityValue('--color-border-hard'),

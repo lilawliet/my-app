@@ -1,5 +1,5 @@
 .card {
-  @apply border border-border-soft rounded-md overflow-hidden md:w-[500px] w-[90vw] md:max-w-[40vw] max-w-[90vw];
+  @apply border border-border-soft rounded-md overflow-hidden md:w-[480px] w-[90vw] md:max-w-[40vw] max-w-[90vw];
   opacity: 0.6;
   background: conic-gradient(
     from 180deg at 50% 50%,
@@ -49,7 +49,7 @@
 }
 
 .projects-container {
-  @apply flex flex-col relative px-8 py-4 md:gap-12 gap-8 max-w-[1096px] m-auto;
+  @apply flex flex-col relative px-8 py-4 md:gap-12 gap-8 max-w-[1096px] m-auto flex-grow flex-1;
 }
 
 .projects-timeline {
@@ -66,4 +66,33 @@
   );
   z-index: 1;
   //   animation: timeline_fade-in__54ZwK 1s ease-out forwards;
+}
+
+// 项目中线中点上的细线
+.project-timeline-left {
+  @apply w-10 h-[1px];
+  background: linear-gradient(
+    90deg,
+    transparent 0,
+    var(--color-border-soft) 60%,
+    var(--color-border-soft) 100%
+  );
+}
+
+.project-timeline-right {
+  @apply w-10 h-[1px];
+  background: linear-gradient(
+    270deg,
+    transparent 0,
+    var(--color-border-soft) 60%,
+    var(--color-border-soft) 100%
+  );
+}
+
+.tag {
+  @apply bg-white rounded-sm px-2 py-1 text-xs cursor-pointer;
+}
+
+.tag.tag-active {
+  @apply bg-gradient-to-r from-slate-50 to-slate-300;
 }

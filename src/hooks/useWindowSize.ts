@@ -6,19 +6,31 @@ export const useWindowSize = () => {
     height: window.innerHeight,
   })
 
+  // 防抖
+  const debounce = (fn: any, delay: any) => {
+    let timerId: any
+    return function (...args: any) {
+      clearTimeout(timerId)
+      timerId = setTimeout(() => {
+        console.log('onresize')
+        fn(...args)
+      }, delay)
+    }
+  }
+
+  const updateSize = () =>
+    setWindowSize({
+      width: window.innerWidth,
+      height: window.innerHeight,
+    })
+
   useEffect(() => {
-    const updateSize = () =>
-      setWindowSize({
-        width: window.innerWidth,
-        height: window.innerHeight,
-      })
+    const onResize = debounce(updateSize, 1000)
 
-    console.log(window.innerWidth)
-
-    window.addEventListener('resize', updateSize)
+    window.addEventListener('resize', onResize)
 
     return () => {
-      window.removeEventListener('resize', updateSize)
+      window.removeEventListener('resize', onResize)
     }
   }, [])
 
