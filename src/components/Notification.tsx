@@ -1,17 +1,20 @@
 import React from 'react'
 import { useTranslation } from 'react-i18next'
 
-export const Notification = () => {
+const Notification = ({
+  text,
+  onClick,
+}: {
+  text: string
+  onClick?: () => void
+}) => {
   const { t } = useTranslation()
 
   return (
-    <div
-      className="notification"
-      onClick={() => window.open('https://github.com/lilawliet/my-app')}
-    >
-      {t(
-        'One-stack deployment of pure static personal website based on Next Js and github workflows'
-      )}
+    <div className="notification" onClick={onClick}>
+      {t(text)}
     </div>
   )
 }
+
+export default Notification

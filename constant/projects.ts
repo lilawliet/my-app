@@ -140,7 +140,6 @@ export const Projects: PROJECT[] = [
     id: 'zjjk2',
     name: '中检健康平台服务端',
     description: '基于 Flask 搭建的网络（发文&商品&用户管理）服务端',
-    highlight: true,
     resonsibility:
       '搭建服务端基础框架及了实现基本业务功能，包括用户管理、产品订单管理、发文评论管理等',
     company: Company.中检健康产业珠海有限公司,
@@ -203,6 +202,7 @@ export const Projects: PROJECT[] = [
   {
     id: 'zjjk-web',
     name: '中检健康官网移动端 H5 页面',
+    highlight: true,
     description: '中国检验认证集团澳门有限公司官网移动端',
     company: Company.中检健康产业珠海有限公司,
     link: 'https://m.ccicmacau.com/',
@@ -215,6 +215,7 @@ export const Projects: PROJECT[] = [
   {
     id: 'zsnp',
     name: '中晟农批市场贸易系统',
+    highlight: true,
     description:
       '为茂名中晟实业有限公司农批市场开发的贸易系统，基本模块包括系统权限、基础数据、客户服务、合同管理、收费管理、进场登记、道闸系统对接、支付平台、NC财务对接等，包含网页端和移动客户端（基于微信公众平台的H5页面）。我在其中主要参与系统权限、基础数据、客户服务、合同管理、收费管理、进场登记、支付平台等模块的开发，并主要负责合同管理，收费管理，支付平台模块及移动客户端开发',
     company: Company.中检健康产业珠海有限公司,
@@ -229,6 +230,7 @@ export const Projects: PROJECT[] = [
     name: 'Python Web 大型网站开发',
     description:
       '由Java Web转型Python Web开发，通过对《Python学习手册》及网易云课堂的官方Python系列课程，知了课堂的《超细讲解Django打造大型企业官网》对Python基础及 Python Web 开发的相关知识进行了全面、完整、深入的学习。并基本实现了基于Django + mysql + JQuery 的模仿“小饭桌”的企业级官网及其后台管理系统，主要功能包括登录注册，新闻发布，图片云存储，视频云点播，微信支付宝支付，haystack 全文搜索等功能',
+    link: 'https://github.com/lilawliet/zhiliao_demo.git',
     tags: ['python', 'django', 'js', 'jquery', 'h5'],
     startTime: '2018-04',
     endTime: '2018-08',

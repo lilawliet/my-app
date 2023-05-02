@@ -55,7 +55,7 @@ export default function Layout({
           </main>
           <Footer
             // label={t('no more')}
-            content="@ 2023-2024 demo.com All rights reserved"
+            content="@ 2023-2024 lilawliet.github.io All rights reserved"
             // links={links}
             chips={chips}
           ></Footer>

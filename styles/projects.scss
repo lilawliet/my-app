@@ -1,5 +1,5 @@
 .card {
-  @apply border border-border-soft  rounded-md overflow-hidden md:w-[500px] w-[90vw] md:max-w-[40vw] max-w-[90vw];
+  @apply border border-border-soft rounded-md overflow-hidden md:w-[500px] w-[90vw] md:max-w-[40vw] max-w-[90vw];
   opacity: 0.6;
   background: conic-gradient(
     from 180deg at 50% 50%,
@@ -49,7 +49,7 @@
 }
 
 .projects-container {
-  @apply flex flex-col relative px-8 py-20 md:gap-4 gap-2 max-w-[1096px] m-auto;
+  @apply flex flex-col relative px-8 py-4 md:gap-12 gap-8 max-w-[1096px] m-auto;
 }
 
 .projects-timeline {

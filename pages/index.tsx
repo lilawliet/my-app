@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next'
 
 import { ASSEST_PREFIX } from '@/constant/config'
 import { Button } from '@/src/components/Button'
-import { Notification } from '@/src/components/Notification'
+import Notification from '@/src/components/Notification'
 import Layout from '@/src/layouts/Base'
 
 import { NextPageWithLayout } from './_app'
@@ -23,7 +23,10 @@ const Page: NextPageWithLayout = () => {
         <title>{t(title)}</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Notification />
+      <Notification
+        text="One-stack deployment of pure static personal website based on Next Js and github workflows"
+        onClick={() => window.open('https://github.com/lilawliet/my-app')}
+      />
 
       <div className="flex flex-row gap-4 items-center justify-center mt-16">
         <Button
