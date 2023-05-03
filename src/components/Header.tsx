@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next'
 
 import { ASSEST_PREFIX } from '@/constant/config'
 
-import { useWindowSize } from '../hooks/useWindowSize'
+import { useOpenUrl } from '../hooks/useOpenUrl'
 import i18n, { LANGUAGE } from '../i18n'
 import { useUpdateLocaleCallback } from '../store/global/hooks'
 import GithubComponent from './Svgs/GithubComponent'
@@ -13,7 +13,7 @@ import I18nComponent from './Svgs/I18nComponent'
 export const Header = ({}) => {
   const { t } = useTranslation()
   const updateLocale = useUpdateLocaleCallback()
-  const windowSize = useWindowSize()
+  const openUrl = useOpenUrl()
 
   const i18nClickHandler = () => {
     updateLocale(i18n.language === 'zh_CN' ? 'en_US' : 'zh_CN')
@@ -82,10 +82,7 @@ export const Header = ({}) => {
             width={24}
             height={24}
             onClick={() => {
-              const forward = 'https://github.com/lilawliet'
-              windowSize.width > 768
-                ? window.open(forward)
-                : (window.location.href = forward)
+              openUrl('https://github.com/lilawliet')
             }}
           />
           {/* <a href="https://github.com/lilawliet" aria-label="Follow my github">

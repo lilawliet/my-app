@@ -8,12 +8,16 @@ import { updateVersion } from './actions'
 export type GlobalState = {
   version: string
   language: LANGUAGE
+  images: string[]
+  imageIndex: number
   // messages: ChatCompletionResponseMessage[] // chatGPT 上下文
 }
 
 const initialState: GlobalState = {
   version: process.env.NEXT_PUBLIC_VERSION,
   language: process.env.NEXT_PUBLIC_LOCALE as LANGUAGE,
+  images: [],
+  imageIndex: 1,
   // messages: [],
 }
 const slice = createSlice({
@@ -36,6 +40,14 @@ const slice = createSlice({
     clean(state) {
       state = initialState
       return state
+    },
+    setImages(state, action: { payload: string[] }) {
+      const { payload } = action
+      state.images = payload
+    },
+    setImagesIndex(state, action: { payload: number }) {
+      const { payload } = action
+      state.imageIndex = payload
     },
     // pushMessages(state, action: { payload: ChatCompletionResponseMessage }) {
     //   const { payload } = action
