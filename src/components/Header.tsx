@@ -34,7 +34,7 @@ export const Header = ({}) => {
   const tabs = [
     {
       name: 'Home',
-      href: '/',
+      href: `${ASSEST_PREFIX}/`,
     },
     {
       name: 'Projects',
@@ -57,6 +57,7 @@ export const Header = ({}) => {
             height={36}
             alt={''}
             className=" md:w-9 md:h-9 w-7 h-7 md:rounded-none rounded-full"
+            onClick={() => (window.location.href = `${ASSEST_PREFIX}/`)}
           ></Image>
 
           {tabs.map((tab, index) => (
