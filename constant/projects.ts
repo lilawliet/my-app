@@ -54,7 +54,7 @@ export const Projects: PROJECT[] = [
     name: 'Bessage',
     highlight: true,
     description:
-      '前端 React-native ，后端 golang 实现的仿微信&推特的Web3概念社交软件',
+      '前端 React-native ，后端 golang 实现的仿微信&推特集成聊天与发文功能的的Web3概念社交软件',
     company: '珠海比元网络科技有限公司',
     tags: [
       'react-native',
@@ -146,10 +146,9 @@ export const Projects: PROJECT[] = [
     id: 'rsb25',
     name: 'rsb2.5',
     description:
-      '(Resource service builder 2.5)， 使用 vue2 + django + mongodb + docker 为基础的可视化静态网站生成管理系统新版',
+      '(Resource service builder 2.5)， 使用 vue2 + Vjsf(可视化拖拽前端编辑框架) + django + mongodb + docker 为基础的可视化静态网站生成管理系统新版',
     resonsibility: '在此项目负责前端可视化框架功能的迭代工作',
     company: '臻实科技有限公司',
-    link: 'https://chrome.google.com/webstore/detail/paragon/gadbifgblmedliakbceidegloehmffic?hl=zh-CN',
     tags: ['vue2', 'django', 'docker', 'mongodb'],
     startTime: '2021-08',
     endTime: '2021-10',
@@ -163,7 +162,7 @@ export const Projects: PROJECT[] = [
     description:
       '(Resource service builder 2.0)是为澳门金沙集团提供的可视化构建C端网页，基于Java后台及Vue前端的管理系统',
     resonsibility:
-      '在此项目负责前端的需求迭代，期间完全负责前端PC版本功能开发，包括：流程（业务）设计、数据整合（数据向：对不同终端数据匹配整合）与组件的开发',
+      '接手该项目时，系统只有移动端配置组件，在该项目中我完全负责 PC 端配置的功能开发，包括流程设计（后端业务逻辑）、数据整合（数据向：对不同终端数据的匹配整合等）与组件开发工作（前端）。',
     company: '臻实科技有限公司',
     tags: ['vue2'],
     startTime: '2021-06',
@@ -174,9 +173,9 @@ export const Projects: PROJECT[] = [
   {
     id: 'zjjk2',
     name: '中检健康平台服务端',
-    description: '基于 Flask 搭建的网络（发文&商品&用户管理）服务端',
+    description: '基于 Flask 搭建的一体化社区网络（发文&商品&用户管理）服务端',
     resonsibility:
-      '搭建服务端基础框架及了实现基本业务功能，包括用户管理、产品订单管理、发文评论管理等',
+      '搭建服务端基础框架及了实现基本业务功能，包括用户管理、产品&订单管理、文章&评论管理等',
     company: '中检健康产业珠海有限公司',
     tags: ['python', 'flask'],
     startTime: '2021-01',

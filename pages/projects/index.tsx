@@ -173,10 +173,6 @@ const Page: NextPageWithLayout = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div className=" md:p-4 p-2 ">
-        <div className=" flex flex-col gap-4 pb-4">
-          <Notification text="Projects marked with an asterisk are more complete or more engaged or have been involved in development for a longer period of time" />
-          <Selector />
-        </div>
         <div className="projects-container">
           <span className="projects-timeline md:block hidden"></span>{' '}
           {Projects.filter(
@@ -189,6 +185,10 @@ const Page: NextPageWithLayout = () => {
                 (p.tags && p.tags.some((t) => tag.includes(t)))
             )
             .map((project, index) => ProjectItem({ project, index }))}
+        </div>
+        <div className=" flex flex-col gap-4 pb-4">
+          <Notification text="Projects marked with an asterisk are more complete or more engaged or have been involved in development for a longer period of time" />
+          <Selector />
         </div>
       </div>
     </div>

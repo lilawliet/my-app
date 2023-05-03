@@ -24,16 +24,18 @@ const Page: NextPageWithLayout = () => {
       </Head>
       <div className=" flex flex-col w-full md:p-8 p-4 items-center justify-center h-40 text-center gap-4">
         <span>黄沛威</span>
+        <span>毕业于 韶关学院</span>
         <span>
-          毕业于 <b>韶关学院</b>
+          <b>
+            熟悉前端主流框架从 0 到 1 的全流程搭建与开发，
+            <br />
+            熟悉 Python web 开发，
+            <br />
+            具备全栈开发能力，
+            <br />
+          </b>
         </span>
         <span>
-          熟悉前端主流框架从 0 到 1 的全流程搭建与开发，
-          <br />
-          熟悉 Python web 开发，
-          <br />
-          具备全栈开发能力，
-          <br />
           目前正在努力成为一个优秀的前端工程师，
           {/* <br /> */}
           {/* 后提高其他各方面综合能力， */}
