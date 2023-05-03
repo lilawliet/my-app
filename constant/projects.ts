@@ -124,7 +124,7 @@ export const Projects: PROJECT[] = [
     description: '基于 react 实现的纯前端 Web3 浏览器插件钱包',
     company: '珠海比元网络科技有限公司',
     link: 'https://chrome.google.com/webstore/detail/paragon/gadbifgblmedliakbceidegloehmffic?hl=zh-CN',
-    tags: ['react-native', 'typescript'],
+    tags: ['react', 'typescript'],
     startTime: '2022-06',
     endTime: '2022-07',
     images: [],
