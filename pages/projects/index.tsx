@@ -24,7 +24,7 @@ const Page: NextPageWithLayout = () => {
   const [visible, setVisible] = useState<boolean>(false)
   const ImageViewer = () => (
     <_ImageViewer.Multi
-      images={images}
+      images={images.map((image) => `${ASSEST_PREFIX}${image}`)}
       visible={visible}
       defaultIndex={imageIndex}
       onClose={() => {
