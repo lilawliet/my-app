@@ -56,6 +56,7 @@ export const Projects: PROJECT[] = [
     description:
       '前端 React-native ，后端 golang 实现的仿微信&推特集成聊天与发文功能的的Web3概念社交软件',
     company: '珠海比元网络科技有限公司',
+    resonsibility: '项目前期二人合作开发，后期由我独立负责',
     tags: [
       'react-native',
       'redux-toolkit',
@@ -98,9 +99,10 @@ export const Projects: PROJECT[] = [
     name: 'football-2022-client',
     highlight: true,
     description: 'Web3 用户参与公平投票足球概念类游戏前端',
+    resonsibility: '由我独立完成项目从0到1的搭建与开发工作',
     company: '珠海比元网络科技有限公司',
     tags: ['vue3', 'typescript', 'pinia', 'tailwindcss'],
-    startTime: '2022-05',
+    startTime: '2022-07',
     endTime: '2022-11',
     images: [
       '/football-client/1.png',
@@ -141,8 +143,8 @@ export const Projects: PROJECT[] = [
     company: '珠海比元网络科技有限公司',
     link: 'https://chrome.google.com/webstore/detail/paragon/gadbifgblmedliakbceidegloehmffic?hl=zh-CN',
     tags: ['react', 'typescript'],
-    startTime: '2022-06',
-    endTime: '2022-07',
+    startTime: '2022-05',
+    endTime: '2022-06',
     images: [
       '/paragon-extension/1.png',
       '/paragon-extension/2.png',
