@@ -87,7 +87,7 @@ export const Projects: PROJECT[] = [
     name: 'Nextjs GraphQL 全栈框架基础示例',
     description:
       '一个基于 nextjs + antd-mobile + redux-tooolkit + graphql + swr + mongodb 的全栈架构基础示例',
-    link: 'https://github.com/lilawliet/chatgpt-server',
+    link: 'https://github.com/lilawliet/next-graphql-demo',
     tags: ['nextjs', 'redux-toolkit', 'typescript', 'graphql', 'mongodb'],
     startTime: '2022-02',
     endTime: '2022-02',
@@ -96,10 +96,11 @@ export const Projects: PROJECT[] = [
   },
   {
     id: 'football-client',
-    name: 'football-2022-client',
+    name: 'Crowd Tactics 2022',
     highlight: true,
     description: 'Web3 用户参与公平投票足球概念类游戏前端',
     resonsibility: '由我独立完成项目从0到1的搭建与开发工作',
+    link: 'https://crowdtactics.io/',
     company: '珠海比元网络科技有限公司',
     tags: ['vue3', 'typescript', 'pinia', 'tailwindcss'],
     startTime: '2022-07',
