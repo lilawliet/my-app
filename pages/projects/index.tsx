@@ -106,9 +106,9 @@ const Page: NextPageWithLayout = () => {
                         setVisible(true)
                       }}
                       src={`${ASSEST_PREFIX}${image}`}
-                      width={200}
-                      height={100}
-                      className=" w-full"
+                      width={100}
+                      height={20}
+                      className="w-full"
                       alt={''}
                     />
                   </Swiper.Item>
