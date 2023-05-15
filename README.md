@@ -1,5 +1,7 @@
 # <img src="https://avatars.githubusercontent.com/u/12482690?v=4" width="24" height="24"> Idai's Personal Website
 
+![example workflow](https://github.com/lilawliet/my-app/actions/workflows/nextjs.yml/badge.svg)
+
 ## github-action workfolws + nextjs v13.3 + typescript + @reduxjs/toolkit + i18next + tailwindcss + eslint + prettier + husky + lint-staged
 
 ### base
