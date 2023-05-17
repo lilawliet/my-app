@@ -54,7 +54,7 @@ export const Projects: PROJECT[] = [
     name: 'Bessage',
     highlight: true,
     description:
-      '前端 React-native ，后端 golang 实现的仿微信&推特集成聊天与发文功能的的Web3概念社交软件',
+      '前端 React-native ，后端 golang 实现的仿微信&推特集成聊天与发文功能的的Web3概念社交软件，实现了邮箱/苹果/谷歌注册与登录功能，完整的聊天系统与推文系统。',
     company: '珠海比元网络科技有限公司',
     resonsibility: '项目前期二人合作开发，后期由我独立负责',
     tags: [
