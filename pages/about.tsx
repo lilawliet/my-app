@@ -14,10 +14,7 @@ const Page: NextPageWithLayout = () => {
   const windowSize = useWindowSize()
 
   return (
-    <div
-      className=" w-full md:min-h-[85vh] min-h-[75vh] flex flex-col items-center justify-center  "
-      id="container"
-    >
+    <div className=" w-full md:min-h-[85vh] min-h-[75vh] flex flex-col items-center justify-center  " id="container">
       <Head>
         <title>{t(title)}</title>
         <link rel="icon" href="/favicon.ico" />
@@ -46,18 +43,13 @@ const Page: NextPageWithLayout = () => {
           <span
             onClick={() => {
               const forward = 'https://github.com/lilawliet'
-              windowSize.width > 768
-                ? window.open(forward)
-                : (window.location.href = forward)
+              windowSize.width > 768 ? window.open(forward) : (window.location.href = forward)
             }}
             className=" underline"
           >
             github: github.com/lilawliet
           </span>
-          <a
-            href="mailto:w251754731@gmail.com"
-            className="underline text-black"
-          >
+          <a href="mailto:w251754731@gmail.com" className="underline text-primary">
             email: w251754731@gmail.com
           </a>
         </div>

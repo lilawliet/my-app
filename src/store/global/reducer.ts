@@ -1,5 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit'
 
+import { THEME } from '@/constant/commons'
 // import { ChatCompletionResponseMessage } from 'openai'
 import { LANGUAGE } from '@/src/i18n'
 
@@ -10,6 +11,7 @@ export type GlobalState = {
   language: LANGUAGE
   images: string[]
   imageIndex: number
+  theme: THEME
   // messages: ChatCompletionResponseMessage[] // chatGPT 上下文
 }
 
@@ -18,6 +20,7 @@ const initialState: GlobalState = {
   language: process.env.NEXT_PUBLIC_LOCALE as LANGUAGE,
   images: [],
   imageIndex: 1,
+  theme: 'light',
   // messages: [],
 }
 const slice = createSlice({
@@ -48,6 +51,10 @@ const slice = createSlice({
     setImagesIndex(state, action: { payload: number }) {
       const { payload } = action
       state.imageIndex = payload
+    },
+    setTheme(state, action: { payload: THEME }) {
+      const { payload } = action
+      state.theme = payload
     },
     // pushMessages(state, action: { payload: ChatCompletionResponseMessage }) {
     //   const { payload } = action

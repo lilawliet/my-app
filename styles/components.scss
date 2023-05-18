@@ -1,9 +1,32 @@
 // Notification 顶部通知栏
 .notification {
-  @apply select-none cursor-pointer md:text-2xl text-lg md:mt-4 mt-2 tracking-wider font-bold text-center bg-white shadow-sm px-4 py-2 rounded;
+  @apply select-none cursor-pointer md:text-2xl text-lg md:mt-4 mt-2 tracking-wider font-bold text-center text-primary bg-pure shadow-sm px-4 py-2 rounded;
 }
 
 .notification:hover {
   animation: bg-white-to-gray 150ms;
   animation-fill-mode: forwards;
+}
+
+// Button
+
+.button {
+  @apply cursor-pointer h-10 px-4 flex items-center justify-center text-base rounded-md shadow-sm font-semibold border min-w-[6rem];
+  transition: background-color 150ms, border-color 150ms, border-width 150ms, color 150ms;
+}
+
+.button.primary:hover {
+  @apply bg-btn-primary-active border-black;
+  transition: background-color 150ms, border-color 150ms, border-width 150ms, color 150ms;
+}
+.button.secondary:hover {
+  @apply bg-btn-secondary-active border-black;
+  transition: background-color 150ms, border-color 150ms, border-width 150ms, color 150ms;
+}
+
+.button.primary {
+  @apply bg-btn-primary text-btn-primary;
+}
+.button.secondary {
+  @apply bg-btn-secondary text-btn-secondary;
 }

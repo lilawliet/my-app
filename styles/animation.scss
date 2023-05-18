@@ -2,11 +2,11 @@
 @keyframes bg-white-to-gray {
   0% {
     @apply shadow-sm;
-    background-color: white;
+    background-color: var(--color-bg-pure);
   }
   100% {
     @apply shadow-none;
-    background-color: var(--color-light-gary);
+    background-color: var(--color-bg-opposite);
   }
 }
 

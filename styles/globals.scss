@@ -3,30 +3,9 @@
 @tailwind utilities;
 @import './animation';
 
-// 监听浏览器主题并切换背景色
-// :root {
-//   --foreground-rgb: 0, 0, 0;
-//   --background-start-rgb: 214, 219, 220;
-//   --background-end-rgb: 255, 255, 255;
-// }
-
-// @media (prefers-color-scheme: dark) {
-//   :root {
-//     --foreground-rgb: 255, 255, 255;
-//     --background-start-rgb: 0, 0, 0;
-//     --background-end-rgb: 0, 0, 0;
-//   }
-// }
-
-// body {
-//   color: rgb(var(--foreground-rgb));
-//   background: linear-gradient(
-//       to bottom,
-//       transparent,
-//       rgb(var(--background-end-rgb))
-//     )
-//     rgb(var(--background-start-rgb));
-// }
+body * {
+  color: var(--color-text-primary);
+}
 
 // 三个省略号等待动画
 .waiting::after {
@@ -34,23 +13,114 @@
   content: '';
 }
 
-.button {
-  @apply cursor-pointer h-10 px-4 flex items-center justify-center text-base rounded-md shadow-sm font-semibold border min-w-[6rem];
-  transition: background-color 150ms, border-color 150ms, color 150ms;
+:root {
+  /********************* 以下为变量别名，不需要修改 *********************/
+  /* light theme */
+  /* body background */
+  --color-bg-body-bottom: var(--light-color-bg-body-bottom); // 主要背景渐变色底部
+  --color-bg-body: var(--light-color-bg-body); // 主要背景色
+  --color-bg-opposite: var(--light-color-bg-opposite);
+
+  /* text */
+  --color-text-primary: var(--light-color-text-primary); // 主要文字色
+  --color-text-secondary: var(--light-color-text-secondary); // 次要文字色
+  --color-text-opposite: var(--light-color-text-opposite); // 反色文字色
+
+  /* button */
+  --color-btn-primary: var(--light-color-btn-primary); // 主要按钮色
+  --color-btn-primary-active: var(--light-color-btn-primary-active); // 主要按钮激活色
+  --color-btn-primary-text: var(--light-color-text-opposite); // 主要按钮文字色
+  --color-btn-secondary: var(--light-color-btn-secondary); // 次要按钮色
+  --color-btn-secondary-active: var(--light-color-btn-secondary-active); // 次要按钮激活色
+  --color-btn-secondary-text: var(--light-color-text-primary); // 次要按钮文字色
+
+  /* border */
+  --color-border-hard: var(--light-color-border-hard); // 边框硬色
+  --color-border-soft: var(--light-color-border-soft); // 边框软色
+
+  /* card */
+  --color-card-bg-primary: var(--light-color-card-bg); // 卡片背景色
+  --color-card-bg-secondary: var(--light-color-border-soft); // 卡片背景软色
+
+  /* icon */
+  --color-icon: var(--light-color-icon); // 图标色
+  --color-icon-active: var(--light-color-icon-active); // 图标激活色
+
+  /* other */
+  --color-light-gary: var(--light-color-light-gary); // 浅灰色
+
+  /* dark theme */
+  @media (prefers-color-scheme: dark) {
+    :root {
+      /* body background */
+      --color-bg-body-bottom: var(--dark-color-bg-body-bottom); // 主要背景渐变色底部
+      --color-bg-body: var(--dark-color-bg-body); // 主要背景色
+      --color-bg-opposite: var(--dark-color-bg-opposite);
+
+      /* text */
+      --color-text-primary: var(--dark-color-text-primary); // 主要文字色
+      --color-text-secondary: var(--dark-color-text-secondary); // 次要文字色
+      --color-text-opposite: var(--dark-color-text-opposite); // 反色文字色
+
+      /* button */
+      --color-btn-primary: var(--dark-color-btn-primary); // 主要按钮色
+      --color-btn-primary-active: var(--dark-color-btn-primary-active); // 主要按钮激活色
+      --color-btn-primary-text: var(--dark-color-text-opposite); // 主要按钮文字色
+      --color-btn-secondary: var(--dark-color-btn-secondary); // 次要按钮色
+      --color-btn-secondary-active: var(--dark-color-btn-secondary-active); // 次要按钮激活色
+      --color-btn-secondary-text: var(--dark-color-text-primary); // 次要按钮文字色
+
+      /* border */
+      --color-border-hard: var(--dark-color-border-hard); // 边框硬色
+      --color-border-soft: var(--dark-color-border-soft); // 边框软色
+
+      /* card */
+      --color-card-bg-primary: var(--dark-color-card-bg); // 卡片背景色
+      --color-card-bg-secondary: var(--dark-color-border-soft); // 卡片背景软色
+
+      /* icon */
+      --color-icon: var(--dark-color-icon); // 图标色
+      --color-icon-active: var(--dark-color-icon-active); // 图标激活色
+
+      /* other */
+      --color-dark-gary: var(--dark-color-dark-gary); // 浅灰色
+    }
+  }
 }
 
-.button.primary:hover {
-  @apply bg-white border-black text-black;
-  transition: background-color 150ms, border-color 150ms, color 150ms;
-}
-.button.secondary:hover {
-  @apply bg-white border-black text-black;
-  transition: background-color 150ms, border-color 150ms, color 150ms;
-}
+/* dark theme */
+:root .dark {
+  /* body background */
+  --color-bg-body-bottom: var(--dark-color-bg-body-bottom); // 主要背景渐变色底部
+  --color-bg-body: var(--dark-color-bg-body); // 主要背景色
+  --color-bg-opposite: var(--dark-color-bg-opposite);
 
-.button.primary {
-  @apply bg-black text-white;
+  /* text */
+  --color-text-primary: var(--dark-color-text-primary); // 主要文字色
+  --color-text-secondary: var(--dark-color-text-secondary); // 次要文字色
+  --color-text-opposite: var(--dark-color-text-opposite); // 反色文字色
+
+  /* button */
+  --color-btn-primary: var(--dark-color-btn-primary); // 主要按钮色
+  --color-btn-primary-active: var(--dark-color-btn-primary-active); // 主要按钮激活色
+  --color-btn-primary-text: var(--dark-color-text-opposite); // 主要按钮文字色
+  --color-btn-secondary: var(--dark-color-btn-secondary); // 次要按钮色
+  --color-btn-secondary-active: var(--dark-color-btn-secondary-active); // 次要按钮激活色
+  --color-btn-secondary-text: var(--dark-color-text-primary); // 次要按钮文字色
+
+  /* border */
+  --color-border-hard: var(--dark-color-border-hard); // 边框硬色
+  --color-border-soft: var(--dark-color-border-soft); // 边框软色
+
+  /* card */
+  --color-card-bg-primary: var(--dark-color-card-bg); // 卡片背景色
+  --color-card-bg-secondary: var(--dark-color-border-soft); // 卡片背景软色
+
+  /* icon */
+  --color-icon: var(--dark-color-icon); // 图标色
+  --color-icon-active: var(--dark-color-icon-active); // 图标激活色
+
+  /* other */
+  --color-dark-gary: var(--dark-color-dark-gary); // 浅灰色
 }
-.button.secondary {
-  @apply bg-white text-gray-600;
-}
+/********************* 以上为变量别名，不需要修改 *********************/

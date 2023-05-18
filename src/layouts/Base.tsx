@@ -10,15 +10,7 @@ import store from '../store'
 
 const inter = Inter({ subsets: ['latin'] })
 
-export default function Layout({
-  children,
-}: {
-  children?: ReactElement
-  back?: ReactElement | null
-  backArrow?: ReactElement | null
-  onBack?: () => void
-  title?: string
-}) {
+export default function Layout({ children }: { children?: ReactElement; back?: ReactElement | null; backArrow?: ReactElement | null; onBack?: () => void; title?: string }) {
   // const { t } = useTranslation()
 
   // const chips: ChipItem[] = [
@@ -48,18 +40,18 @@ export default function Layout({
   return (
     <Provider store={store}>
       <GateWay>
-        <>
+        <div className=" bg-gradient-to-b from-body to-body-bottom flex-1 flex-grow">
           <Header />
-          <main className={`${inter.className} md:mt-20 mt-16 md:p-4 p-2`}>
-            {children}
-          </main>
+          <main className={`${inter.className} md:pt-24 pt-[4.5rem] md:p-4 p-2`}>{children}</main>
           <Footer
+            className=" bg-opacity-100"
+            style={{ backgroundColor: 'transparent' }}
             // label={t('no more')}
             content="@ 2023-2024 lilawliet.github.io All rights reserved"
             // links={links}
             chips={chips}
           ></Footer>
-        </>
+        </div>
       </GateWay>
     </Provider>
   )

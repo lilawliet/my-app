@@ -1,11 +1,46 @@
+/**
+* 定义不同主题色，不直接引用这些颜色，
+* !!! 在 globals.scss 中引用相应的变量 !!!
+*/
+
 :root {
-  --color-btn-primary: black;
-  --color-btn-secondary: rgb(75 85 99);
-  --color-border-hard: rgb(100, 100, 100);
-  --color-border-soft: rgba(100, 100, 100, 0.3);
-  --color-icon: #a0aec0;
-  --color-icon-active: #718096;
-  --color-light-gary: rgb(250, 250, 250);
-  --color-card-bg: rgb(16, 16, 16);
-  --color-card-bg-soft: rgba(16, 16, 16, 0.8);
+  // light theme
+  --light-color-text-primary: black;
+  --light-color-text-secondary: #a0aec0;
+  --light-color-text-opposite: white;
+  --light-color-bg-body: rgb(255, 253, 228);
+  --light-color-bg-body-bottom: rgb(255, 255, 255); // 渐变色底部
+  --light-color-bg-pure: rgb(16, 16, 16);
+  --light-color-bg-opposite: black;
+  --dark-color-btn-primary: rgb(205 205 205);
+  --dark-color-btn-primary-active: rgb(255, 255, 255);
+  --dark-color-btn-secondary: rgb(16, 16, 16);
+  --dark-color-btn-secondary-active: rgb(35, 35, 35);
+  --light-color-border-hard: rgb(100, 100, 100);
+  --light-color-border-soft: rgba(100, 100, 100, 0.3);
+  --light-color-icon: #a0aec0;
+  --light-color-icon-active: #718096;
+  --light-color-light-gary: rgb(250, 250, 250);
+  --light-color-card-bg: rgb(16, 16, 16);
+  --light-color-card-bg-soft: rgba(16, 16, 16, 0.8);
+
+  // dark theme
+  --dark-color-text-primary: white;
+  --dark-color-text-secondary: #cfcfcf;
+  --dark-color-text-opposite: black;
+  --dark-color-bg-body: rgb(0, 19, 27);
+  --dark-color-bg-body-bottom: rgb(0, 12, 36); // 渐变色底部
+  --light-color-bg-pure: rgb(239, 239, 239);
+  --light-color-bg-opposite: white;
+  --light-color-btn-primary: rgb(35, 35, 35);
+  --light-color-btn-primary-active: rgb(16, 16, 16);
+  --light-color-btn-secondary: rgb(233, 233, 233);
+  --light-color-btn-secondary-active: rgb(240, 237, 233);
+  --dark-color-border-hard: rgb(230, 230, 230);
+  --dark-color-border-soft: rgba(230, 230, 230, 0.3);
+  --dark-color-icon: #a0aec0;
+  --dark-color-icon-active: #e5e9ed;
+  --dark-color-light-gary: rgb(250, 250, 250);
+  --dark-color-card-bg: rgb(16, 16, 16);
+  --dark-color-card-bg-soft: rgba(16, 16, 16, 0.8);
 }
