@@ -1,9 +1,4 @@
-export const Company = [
-  '珠海国通科技有限公司',
-  '中检健康产业珠海有限公司',
-  '臻实科技有限公司',
-  '珠海比元网络科技有限公司',
-]
+export const Company = ['珠海国通科技有限公司', '中检健康产业珠海有限公司', '臻实科技有限公司', '珠海比元网络科技有限公司']
 
 export type COMPANY = (typeof Company)[number]
 
@@ -53,28 +48,33 @@ export const Projects: PROJECT[] = [
     id: 'bessage',
     name: 'Bessage',
     highlight: true,
-    description:
-      '前端 React-native ，后端 golang 实现的仿微信&推特集成聊天与发文功能的的Web3概念社交软件，实现了邮箱/苹果/谷歌注册与登录功能，完整的聊天系统与推文系统。',
+    description: '前端 React-native ，后端 golang 实现的仿微信&推特集成聊天与发文功能的的Web3概念社交软件，实现了邮箱/苹果/谷歌注册与登录功能，完整的聊天系统与推文系统。',
     company: '珠海比元网络科技有限公司',
     resonsibility: '项目前期二人合作开发，后期由我独立负责',
-    tags: [
-      'react-native',
-      'redux-toolkit',
-      'typescript',
-      'docker',
-      'go',
-      'mongodb',
-    ],
+    tags: ['react-native', 'redux-toolkit', 'typescript', 'docker', 'go', 'mongodb'],
     startTime: '2022-12',
     endTime: '2023-04',
-    images: ['/bessage/1.png', '/bessage/2.png'],
+    images: [
+      '/bessage/gif/1.gif',
+      '/bessage/gif/2.gif',
+      '/bessage/gif/3.gif',
+      '/bessage/gif/4.gif',
+      '/bessage/gif/5.gif',
+      '/bessage/gif/6.gif',
+      '/bessage/gif/7.gif',
+      '/bessage/gif/8.gif',
+      '/bessage/gif/9.gif',
+      '/bessage/gif/10.gif',
+      '/bessage/gif/11.gif',
+      '1.png',
+      '/bessage/2.png',
+    ],
     position: 'self-start',
   },
   {
     id: 'chatgpt-server',
     name: 'ChatGPT Server',
-    description:
-      '基于 Fastify node 轻量级服务端框架快速搭建的简单ChatGPT接口服务',
+    description: '基于 Fastify node 轻量级服务端框架快速搭建的简单ChatGPT接口服务',
     link: 'https://github.com/lilawliet/chatgpt-server',
     tags: ['fastify', 'typescript'],
     startTime: '2023-03',
@@ -85,8 +85,7 @@ export const Projects: PROJECT[] = [
   {
     id: 'nextjs-graphql-demo',
     name: 'Nextjs GraphQL 全栈框架基础示例',
-    description:
-      '一个基于 nextjs + antd-mobile + redux-tooolkit + graphql + swr + mongodb 的全栈架构基础示例',
+    description: '一个基于 nextjs + antd-mobile + redux-tooolkit + graphql + swr + mongodb 的全栈架构基础示例',
     link: 'https://github.com/lilawliet/next-graphql-demo',
     tags: ['nextjs', 'redux-toolkit', 'typescript', 'graphql', 'mongodb'],
     startTime: '2022-02',
@@ -163,8 +162,7 @@ export const Projects: PROJECT[] = [
   {
     id: 'novo-base',
     name: 'novo-base',
-    description:
-      '基于 vue3 + typescript 搭建的比元科技私有链的基础功能（查看&查询数据）网站',
+    description: '基于 vue3 + typescript 搭建的比元科技私有链的基础功能（查看&查询数据）网站',
     company: '珠海比元网络科技有限公司',
     tags: ['vue3', 'typescript'],
     startTime: '2022-03',
@@ -175,8 +173,7 @@ export const Projects: PROJECT[] = [
   {
     id: 'rsb25',
     name: 'rsb2.5',
-    description:
-      '(Resource service builder 2.5)， 使用 vue2 + Vjsf(可视化拖拽前端编辑框架) + django + mongodb + docker 为基础的可视化静态网站生成管理系统新版',
+    description: '(Resource service builder 2.5)， 使用 vue2 + Vjsf(可视化拖拽前端编辑框架) + django + mongodb + docker 为基础的可视化静态网站生成管理系统新版',
     resonsibility: '在此项目负责前端可视化框架功能的迭代工作',
     company: '臻实科技有限公司',
     tags: ['vue2', 'django', 'docker', 'mongodb'],
@@ -189,8 +186,7 @@ export const Projects: PROJECT[] = [
     id: 'rsb20',
     name: 'rsb2.0',
     highlight: true,
-    description:
-      '(Resource service builder 2.0)是为澳门金沙集团提供的可视化构建C端网页，基于Java后台及Vue前端的管理系统',
+    description: '(Resource service builder 2.0)是为澳门金沙集团提供的可视化构建C端网页，基于Java后台及Vue前端的管理系统',
     resonsibility:
       '接手该项目时，系统只有移动端配置组件，在该项目中我完全负责 PC 端配置的功能开发，包括流程设计（后端业务逻辑）、数据整合（数据向：对不同终端数据的匹配整合等）与组件开发工作（前端）。',
     company: '臻实科技有限公司',
@@ -204,8 +200,7 @@ export const Projects: PROJECT[] = [
     id: 'zjjk2',
     name: '中检健康平台服务端',
     description: '基于 Flask 搭建的一体化社区网络（发文&商品&用户管理）服务端',
-    resonsibility:
-      '搭建服务端基础框架及了实现基本业务功能，包括用户管理、产品&订单管理、文章&评论管理等',
+    resonsibility: '搭建服务端基础框架及了实现基本业务功能，包括用户管理、产品&订单管理、文章&评论管理等',
     company: '中检健康产业珠海有限公司',
     tags: ['python', 'flask'],
     startTime: '2021-01',
@@ -216,8 +211,7 @@ export const Projects: PROJECT[] = [
   {
     id: 'cjhd',
     name: '基于内部业务系统和微信公众号平台对接的抽奖活动',
-    description:
-      '业务功能集成于内部业务系统，对接微信公众号的节日线上营销，H5答题、转盘抽奖活动，参与答题抽奖，邀请三位微信好友成功参与抽奖可再获抽奖机会。',
+    description: '业务功能集成于内部业务系统，对接微信公众号的节日线上营销，H5答题、转盘抽奖活动，参与答题抽奖，邀请三位微信好友成功参与抽奖可再获抽奖机会。',
     company: '中检健康产业珠海有限公司',
     tags: ['python', 'flask', 'redis'],
     startTime: '2020-03',
@@ -242,8 +236,7 @@ export const Projects: PROJECT[] = [
   {
     id: 'flask-vue',
     name: '基于Flask + Vue 框架部署的小网站',
-    description:
-      '利用业余时间实现基于Flask + Vue + Mysql 框架搭建的简单网站，从零开始完成搭建、开发、部署、备案等工作，主要是为了学习运维方面的知识及技术整合。',
+    description: '利用业余时间实现基于Flask + Vue + Mysql 框架搭建的简单网站，从零开始完成搭建、开发、部署、备案等工作，主要是为了学习运维方面的知识及技术整合。',
 
     tags: ['python', 'flask', 'vue2'],
     startTime: '2020-02',

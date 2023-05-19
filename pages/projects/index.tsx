@@ -82,6 +82,7 @@ const Page: NextPageWithLayout = () => {
                         setImageIndex(index)
                         setVisible(true)
                       }}
+                      priority
                       src={`${ASSEST_PREFIX}${image}`}
                       width={100}
                       height={20}
