@@ -10,6 +10,7 @@ const nextConfig = {
     unoptimized: true,
   },
   output: 'export',
+  compress: true,
 }
 
 module.exports = nextConfig

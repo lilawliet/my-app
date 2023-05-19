@@ -70,11 +70,11 @@ export const Header = ({}) => {
       icon: <ThemeDarkComponent width={18} height={18} color="black" />,
       text: <span className="text-black">{t('Dark')}</span>,
     },
-    {
-      key: 'system',
-      icon: <ThemeSystemComponent width={18} height={18} color="black" />,
-      text: <span className="text-black">{t('System')}</span>,
-    },
+    // {
+    //   key: 'system',
+    //   icon: <ThemeSystemComponent width={18} height={18} color="black" />,
+    //   text: <span className="text-black">{t('System')}</span>,
+    // },
   ]
 
   return (

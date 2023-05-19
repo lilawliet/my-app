@@ -30,6 +30,8 @@ const Page: NextPageWithLayout = () => {
             <br />
             具备全栈开发能力，
             <br />
+            乐于接受新技术并具备快速学习能力
+            <br />
           </b>
         </span>
         <span>
