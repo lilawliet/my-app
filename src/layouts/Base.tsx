@@ -44,10 +44,9 @@ export default function Layout({ children }: { children?: ReactElement; back?: R
           <Header />
           <main className={`${inter.className} md:pt-24 pt-[4.5rem] md:p-4 p-2`}>{children}</main>
           <Footer
-            className=" bg-opacity-100"
             style={{ backgroundColor: 'transparent' }}
             // label={t('no more')}
-            content="@ 2023-2024 lilawliet.github.io All rights reserved"
+            content={<span className="text-secondary">@ 2023-2024 lilawliet.github.io All rights reserved</span>}
             // links={links}
             chips={chips}
           ></Footer>
