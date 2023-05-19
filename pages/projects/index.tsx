@@ -52,16 +52,16 @@ const Page: NextPageWithLayout = () => {
       <div className="announce h-full flex-1">
         <div className="bg-card-bg w-full h-full flex flex-col md:gap-4 gap-2 md:px-6 md:py-4 py-2 p-4 relative">
           {project.link ? (
-            <span className="font-extrabold tracking-widest text-lg text-white flex flex-row flex-wrap items-start md:gap-2 gap-1">
-              <span className="hover:underline text-white flex flex-row items-start gap-1" onClick={() => project.link && openUrl(project.link)}>
-                <LinkComponent width={18} height={28} className=" fill-white" />
+            <span className="font-extrabold tracking-widest text-lg text-primary flex flex-row flex-wrap items-start md:gap-2 gap-1">
+              <span className="hover:underline text-primary flex flex-row items-start gap-1" onClick={() => project.link && openUrl(project.link)}>
+                <LinkComponent width={18} height={28} className="fill-primary" />
                 {project.name}
               </span>
               {project.highlight && HighlightComponent()}
               <span className="text-xs font-normal leading-7">{project.company !== undefined && `  [${project.company}]`}</span>
             </span>
           ) : (
-            <span className=" font-extrabold tracking-widest text-lg text-white flex flex-row flex-wrap items-start md:gap-2 gap-1">
+            <span className=" font-extrabold tracking-widest text-lg text-primary flex flex-row flex-wrap items-start md:gap-2 gap-1">
               <span>{project.name}</span>
               {project.highlight && <HighlightComponent />}
               <span className="text-xs font-normal leading-7">{project.company !== undefined && `  [${project.company}]`}</span>
@@ -93,7 +93,7 @@ const Page: NextPageWithLayout = () => {
               </Swiper>
             </Space>
           )}
-          <span className=" text-white font-light text-md">{project.description}</span>
+          <span className=" text-prmary text-opacity-80 font-light text-md ">{project.description}</span>
           <span className=" text-xs font-light italic text-white text-opacity-80 self-end">
             {project.startTime} - {project.endTime}
           </span>
@@ -105,8 +105,7 @@ const Page: NextPageWithLayout = () => {
   const TagsComponent = ({ tags, position }: { tags?: string[]; position: string }) => (
     <div className={`flex my-1 flex-wrap gap-2 ${position === 'self-start' ? 'flex-row' : 'flex-row-reverse md:self-end self-start'}`}>
       {tags?.map((tag, index) => (
-        <div key={`tag-${index}`} className=" tag">
-          {' '}
+        <div key={`tag-${index}`} className=" tag text-black">
           {tag}
         </div>
       ))}
@@ -126,11 +125,11 @@ const Page: NextPageWithLayout = () => {
 
   const Selector = () => (
     <div className="self-start flex flex-col gap-4">
-      <div className="flex flex-row flex-wrap items-center gap-2 w-full">
+      <div className="flex flex-row flex-wrap items-center gap-2 w-full ">
         {Company.map((item, index) => (
           <div
             key={index}
-            className={`tag ${company.includes(item) && 'tag-active'}`}
+            className={`tag text-black ${company.includes(item) && 'tag-active'}`}
             onClick={() => {
               company.includes(item) ? setCompany(company.filter((i) => i !== item)) : setCompany([...company, item])
             }}
@@ -143,7 +142,7 @@ const Page: NextPageWithLayout = () => {
         {Tags.map((item, index) => (
           <div
             key={index}
-            className={`tag ${tag.includes(item) && 'tag-active'}`}
+            className={`tag text-black ${tag.includes(item) && 'tag-active'}`}
             onClick={() => {
               tag.includes(item) ? setTag(tag.filter((i) => i !== item)) : setTag([...tag, item])
             }}

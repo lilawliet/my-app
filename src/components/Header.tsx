@@ -92,7 +92,7 @@ export const Header = ({}) => {
           ></Image>
 
           {tabs.map((tab, index) => (
-            <a className=" text-secondary hover:text-primary text-base font-medium" href={tab.href} key={index}>
+            <a className="text-secondary hover:text-primary md:text-base text-sm font-medium" href={tab.href} key={index}>
               {t(tab.name)}
             </a>
           ))}

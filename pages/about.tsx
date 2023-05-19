@@ -14,7 +14,7 @@ const Page: NextPageWithLayout = () => {
   const windowSize = useWindowSize()
 
   return (
-    <div className=" w-full md:min-h-[85vh] min-h-[75vh] flex flex-col items-center justify-center  " id="container">
+    <div className=" w-full md:min-h-[86vh] min-h-[85vh] flex flex-col items-center justify-center  " id="container">
       <Head>
         <title>{t(title)}</title>
         <link rel="icon" href="/favicon.ico" />

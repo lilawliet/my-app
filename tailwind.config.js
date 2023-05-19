@@ -53,6 +53,9 @@ module.exports = {
         'card-bg-primary': 'var(--color-card-bg-primary)',
         'btn-primary': 'var(--color-btn-primary-text)',
         'btn-secondary': 'var(--color-btn-secondary-text)',
+        primary: 'var(--color-text-primary)',
+        secondary: 'var(--color-text-secondary)',
+        opposite: 'var(--color-text-opposite)',
       },
       textColor: {
         primary: 'var(--color-text-primary)',
