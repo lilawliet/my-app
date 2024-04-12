@@ -22,7 +22,7 @@ const Page: NextPageWithLayout = () => {
       </Head>
       <div className="relative">
         <div className="cloud-box">
-          <div className="cloud-bg"></div>
+          <div className="cloud-bg" style={{ backgroundImage: `url(${ASSEST_PREFIX}/common/tim-burroughs-mainshot.jpg)` }}></div>
           <div className="z-10">
             <Notification
               text="One-stack deployment of pure static personal website based on Next Js and github workflows"
