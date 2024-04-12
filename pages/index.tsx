@@ -41,9 +41,9 @@ const Page: NextPageWithLayout = () => {
           </div>
         </div>
         <div className="absolute -bottom-6 right-0 text-gray-600 italic">
-          *背景图来源：
+          *{t('Background image source:')}
           <a href="https://www.artstation.com/artwork/9NNB0W" target="_blank">
-            3D艺术家Tim Burroughs
+            3D Artist -- Tim Burroughs
           </a>
         </div>
       </div>
