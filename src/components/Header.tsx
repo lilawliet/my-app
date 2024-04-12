@@ -59,10 +59,10 @@ export const Header = ({}) => {
       href: 'https://mxvfurm2ssn.feishu.cn/docx/OSZ1dr0fLoS8DAx4su5cHPd0n1f?from=from_copylink',
       target: '_blank',
     },
-    {
-      name: 'About me',
-      href: `${ASSEST_PREFIX}/about`,
-    },
+    // {
+    //   name: 'About me',
+    //   href: `${ASSEST_PREFIX}/about`,
+    // },
   ]
 
   const themes: Action[] = [

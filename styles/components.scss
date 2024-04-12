@@ -37,6 +37,13 @@
   @apply overflow-hidden flex items-center justify-center flex-col rounded-lg m-auto relative rounded-lg;
 }
 
+// media phone
+@media (max-width: 768px) {
+  .cloud-box {
+    height: 70vh;
+  }
+}
+
 .cloud-bg {
   background-size: contain;
   background-color: rgba($color: #fff, $alpha: 0.3);

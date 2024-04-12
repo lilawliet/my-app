@@ -36,7 +36,7 @@ const Page: NextPageWithLayout = () => {
             />
             <div className="flex flex-row gap-4 items-center justify-center mt-16">
               <Button type="primary" title="Projects" onClick={() => (window.location.href = `${ASSEST_PREFIX}/projects`)} />
-              <Button type="secondary" title="About me" onClick={() => (window.location.href = `${ASSEST_PREFIX}/about`)} />
+              <Button type="secondary" title="Resume" onClick={() => window.open(`https://mxvfurm2ssn.feishu.cn/docx/OSZ1dr0fLoS8DAx4su5cHPd0n1f?from=from_copylink`)} />
             </div>
           </div>
         </div>
