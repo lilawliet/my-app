@@ -40,7 +40,7 @@
 .cloud-bg {
   background-size: contain;
   background-color: rgba($color: #fff, $alpha: 0.3);
-  background-image: url('/common/tim-burroughs-mainshot.jpg');
+  background-image: url(/common/tim-burroughs-mainshot.jpg);
   background-blend-mode: lighten;
   width: 100%;
   height: 100%;
@@ -85,9 +85,9 @@
 
 @keyframes anumateRunWay {
   0% {
-    mask: url('/common/ink.77970df7.png') center center / 500px 500px no-repeat;
+    mask: url(/common/ink.77970df7.png) center center / 500px 500px no-repeat;
   }
   100% {
-    mask: url('/common/ink.77970df7.png') center center / 3000px 2200px no-repeat;
+    mask: url(/common/ink.77970df7.png) center center / 3000px 2200px no-repeat;
   }
 }
