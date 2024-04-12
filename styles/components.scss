@@ -50,6 +50,7 @@
   // mask: url('/common/ink.77970df7.png') center center / var(--mask-width) var(--mask-height) no-repeat;
   opacity: 1;
   // 执行一次
+  animation-delay: 1s;
   animation: ani-mask 2s linear forwards, ani-shake 10s linear infinite;
   // animation: shack 4s linear infinite;
 }
