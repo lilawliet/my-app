@@ -6,8 +6,8 @@ export const useWindowSize = () => {
     height: window.innerHeight,
   })
 
-  // 防抖
-  const debounce = (fn: any, delay: any) => {
+  // 手写节流
+  const throttle = (fn: any, delay: any) => {
     let timerId: any
     return function (...args: any) {
       clearTimeout(timerId)
@@ -25,7 +25,7 @@ export const useWindowSize = () => {
     })
 
   useEffect(() => {
-    const onResize = debounce(updateSize, 1000)
+    const onResize = throttle(updateSize, 1000)
 
     window.addEventListener('resize', onResize)
 

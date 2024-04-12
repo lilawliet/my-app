@@ -30,3 +30,64 @@
 .button.secondary {
   @apply bg-btn-secondary text-btn-secondary;
 }
+
+.cloud-box {
+  width: 90vw;
+  height: 60vh;
+  @apply overflow-hidden flex items-center justify-center flex-col rounded-lg m-auto relative rounded-lg;
+}
+
+.cloud-bg {
+  background-size: contain;
+  background-color: rgba($color: #fff, $alpha: 0.3);
+  background-image: url('/common/tim-burroughs-mainshot.jpg');
+  background-blend-mode: lighten;
+  width: 100%;
+  height: 100%;
+  @apply bg-cover bg-center bg-no-repeat absolute;
+  // mask: url('/common/ink.77970df7.png') center center / var(--mask-width) var(--mask-height) no-repeat;
+  opacity: 1;
+  // 执行一次
+  animation: anumateRunWay 2s linear, shack 10s linear infinite;
+  // animation: shack 4s linear infinite;
+}
+
+@keyframes shack {
+  // 0% {
+  //   background-position-x: 0px;
+  //   background-position-y: 0px;
+  // }
+  // 25% {
+  //   background-position-x: -10px;
+  //   background-position-y: 10px;
+  // }
+  // 50% {
+  //   background-position-x: 0px;
+  //   background-position-y: 0px;
+  // }
+  // 100% {
+  //   background-position-x: 10px;
+  //   background-position-y: -10px;
+  // }
+
+  0% {
+    transform: scale3d(1, 1, 1);
+  }
+
+  50% {
+    transform: scale3d(1.02, 1, 1);
+  }
+
+  100% {
+    transform: scale3d(1, 1, 1);
+  }
+}
+
+@keyframes anumateRunWay {
+  0% {
+    mask: url('/common/ink.77970df7.png') center center / 500px 500px no-repeat;
+  }
+  100% {
+    mask: url('/common/ink.77970df7.png') center center / 3000px 2200px no-repeat;
+  }
+}

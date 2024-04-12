@@ -3,6 +3,7 @@ import '@/styles/github-corner.css'
 import '@/styles/globals.scss'
 import '@/styles/header.scss'
 import '@/styles/projects.scss'
+import '@/styles/constants.scss'
 import 'src/i18n'
 
 import { NextPage } from 'next'

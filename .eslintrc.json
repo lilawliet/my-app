@@ -1,10 +1,6 @@
 {
   "plugins": ["@typescript-eslint", "simple-import-sort", "unused-imports"],
-  "extends": [
-    "next/core-web-vitals",
-    "plugin:@typescript-eslint/recommended",
-    "prettier"
-  ],
+  "extends": ["next/core-web-vitals", "plugin:@typescript-eslint/recommended", "prettier"],
   "rules": {
     // 插件 eslint-plugin-simple-import-sort 相关配置
     "simple-import-sort/imports": "error",
@@ -30,6 +26,9 @@
     "@typescript-eslint/ban-types": 0,
     "@typescript-eslint/no-unused-vars": "error",
     "@typescript-eslint/no-explicit-any": 0,
+    "no-multiple-empty-lines": ["warn", { "max": 1 }], // 最多空一行
+    "no-multi-spaces": "warn", // 禁止多个空格
+    // "no-irregular-whitespace": "warn", // 禁止不规则的空白
     "prefer-const": "warn"
   }
 }

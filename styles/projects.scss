@@ -9,7 +9,7 @@
     rgba(72, 72, 72, 0.6) 271.36deg,
     hsla(0, 0%, 100%, 0.6) 1turn
   );
-  box-shadow: 0 0 80px hsla(0, 0%, 100%, 0.12), 0 0 6px 3px hsla(0, 0%, 100%, 0.05), inset 0 0 8px hsla(0, 0%, 100%, 0.1);
+  // box-shadow: 0 0 80px hsla(0, 0%, 100%, 0.12), 0 0 6px 3px hsla(0, 0%, 100%, 0.05), inset 0 0 8px hsla(0, 0%, 100%, 0.1);
   transition: opacity 1s ease;
 
   .announce {
@@ -44,10 +44,18 @@
     border-radius: inherit;
     transition: opacity 1s ease;
   }
+
+  .card-content {
+    @apply h-full flex flex-col md:gap-4 gap-2 md:mx-6 md:my-4 my-2 mx-4 relative;
+  }
 }
 
 .projects-container {
-  @apply flex flex-col relative md:px-8 px-4 py-6 md:gap-12 gap-8 max-w-[1096px] m-auto flex-grow flex-1;
+  @apply flex flex-col relative py-6 md:gap-12 gap-8 max-w-[1096px] m-auto flex-grow flex-1;
+}
+
+.project-item {
+  @apply md:px-8 px-4 py-2 w-full flex flex-col relative;
 }
 
 .projects-timeline {

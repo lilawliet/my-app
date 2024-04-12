@@ -1,13 +1,15 @@
 import { ImageViewer as _ImageViewer, Space, Swiper } from 'antd-mobile'
+import _ from 'lodash'
 import Head from 'next/head'
 import Image from 'next/image'
-import React, { ReactElement, useState } from 'react'
+import React, { ReactElement, useRef, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 
 import { ASSEST_PREFIX } from '@/constant/config'
 import { Company, PROJECT, Projects, Tags } from '@/constant/projects'
 import Notification from '@/src/components/Notification'
 import LinkComponent from '@/src/components/Svgs/LinkComponent'
+import useMousePosition from '@/src/hooks/useMousePosition'
 import { useOpenUrl } from '@/src/hooks/useOpenUrl'
 import Layout from '@/src/layouts/Base'
 
@@ -18,6 +20,7 @@ const title = 'Projects'
 const Page: NextPageWithLayout = () => {
   const { t } = useTranslation()
   const openUrl = useOpenUrl()
+  const mousePosition = useMousePosition()
 
   const [images, setImages] = useState<string[]>([])
   const [imageIndex, setImageIndex] = useState<number>(0)
@@ -47,61 +50,118 @@ const Page: NextPageWithLayout = () => {
     </div>
   )
 
-  const CardComponent = ({ project }: { project: PROJECT }) => (
-    <div className={`card ${project.position === 'self-end' ? 'md:self-end' : 'md:self-start'} self-center`}>
-      <div className="announce h-full flex-1">
-        <div className="bg-card-bg w-full h-full flex flex-col md:gap-4 gap-2 md:px-6 md:py-4 py-2 p-4 relative">
-          {project.link ? (
-            <span className="font-extrabold tracking-widest text-lg text-primary flex flex-row flex-wrap items-start md:gap-2 gap-1">
-              <span className="hover:underline text-primary flex flex-row items-start gap-1" onClick={() => project.link && openUrl(project.link)}>
-                <LinkComponent width={18} height={28} className="fill-primary" />
-                {project.name}
+  const ROTATE_RATE = 12
+
+  const [rotateXs, setRotateXs] = useState<number[]>(new Array(Projects.length).fill(0))
+  const [rotateYs, setRotateYs] = useState<number[]>(new Array(Projects.length).fill(0))
+
+  const CardComponent = ({ index, project }: { index: number; project: PROJECT }) => {
+    const _itemRef = useRef<HTMLDivElement>(null)
+
+    // const [rotateX, setRotateX] = useState<number>(0)
+    // const [rotateY, setRotateY] = useState<number>(0)
+    // const rotateX = 0
+
+    const onMouseOver = _.throttle(() => {
+      if (!_itemRef.current) return
+      if (!mousePosition.x || !mousePosition.y) return
+
+      // console.log(project.id, mousePosition)
+      // console.log(_itemRef.current?.getBoundingClientRect())
+
+      const _rect = _itemRef.current?.getBoundingClientRect()
+      const rotateY = ~~(((mousePosition.y - _rect.top) / _rect.height) * ROTATE_RATE - ROTATE_RATE / 2)
+      const rotateX = ~~(((mousePosition.x - _rect.left) / _rect.width) * ROTATE_RATE - ROTATE_RATE / 2)
+
+      rotateXs[index] = rotateX
+      setRotateXs(rotateXs)
+
+      rotateYs[index] = rotateY
+      setRotateYs(rotateYs)
+
+      // setRotateY((mousePosition.y - _itemRef.current?.getBoundingClientRect().top) / 10)
+      // setRotateX((mousePosition.x - _itemRef.current?.getBoundingClientRect().left) / 10)
+    }, 300)
+
+    const onMouseOut = () => {
+      rotateXs[index] = 0
+      setRotateXs(rotateXs)
+
+      rotateYs[index] = 0
+      setRotateYs(rotateYs)
+    }
+
+    return (
+      <div
+        key={`card-${index}`}
+        ref={_itemRef}
+        onMouseOver={onMouseOver}
+        onMouseOut={onMouseOut}
+        onMouseLeave={onMouseOut}
+        style={{
+          border: 'none',
+          transform: `rotateX(${rotateXs[index]}deg) rotateY(${rotateYs[index]}deg)`,
+          boxShadow: `${rotateXs[index]}px ${rotateYs[index]}px 4px rgba(0,0,0,.5)`,
+          transition: 'transform 150ms ease, box-shadow 150ms ease-in-out', // smooth transition
+        }}
+        className={`card ${project.position === 'self-end' ? 'md:self-end' : 'md:self-start'} self-center`}
+      >
+        <div className="announce h-full flex-1 bg-red-700">
+          <div className="card-content">
+            {project.link ? (
+              <span className="font-extrabold tracking-widest text-lg text-primary flex flex-row flex-wrap items-start md:gap-2 gap-1">
+                <span className="hover:underline text-primary flex flex-row items-start gap-1" onClick={() => project.link && openUrl(project.link)}>
+                  <LinkComponent width={18} height={28} className="fill-primary" />
+                  {project.name}
+                </span>
+                {project.highlight && HighlightComponent()}
+                <span className="text-xs font-normal leading-7">{project.company !== undefined && `  [${project.company}]`}</span>
               </span>
-              {project.highlight && HighlightComponent()}
-              <span className="text-xs font-normal leading-7">{project.company !== undefined && `  [${project.company}]`}</span>
+            ) : (
+              <span className=" font-extrabold tracking-widest text-lg text-primary flex flex-row flex-wrap items-start md:gap-2 gap-1">
+                <span>{project.name}</span>
+                {project.highlight && <HighlightComponent />}
+                <span className="text-xs font-normal leading-7">{project.company !== undefined && `  [${project.company}]`}</span>
+              </span>
+            )}
+            {project.images.length > 0 && (
+              <Space direction="vertical" block>
+                <Swiper
+                  indicator={(total, current) => (
+                    <div className=" absolute top-1 right-1 bg-white bg-opacity-70 rounded-sm px-2 py-1 text-black ">{`${current + 1} / ${total}`}</div>
+                  )}
+                  defaultIndex={0}
+                >
+                  {project.images.map((image, index) => (
+                    <Swiper.Item key={index}>
+                      <Image
+                        onClick={() => {
+                          // imageViewer(project.images, index + 1)
+                          setImages(project.images)
+                          setImageIndex(index)
+                          setVisible(true)
+                        }}
+                        priority
+                        src={`${ASSEST_PREFIX}${image}`}
+                        width={100}
+                        height={20}
+                        className="w-full"
+                        alt={''}
+                      />
+                    </Swiper.Item>
+                  ))}
+                </Swiper>
+              </Space>
+            )}
+            <span className=" text-prmary text-opacity-80 font-light text-md ">{project.description}</span>
+            <span className=" text-xs font-light italic text-white text-opacity-80 self-end">
+              {project.startTime} - {project.endTime}
             </span>
-          ) : (
-            <span className=" font-extrabold tracking-widest text-lg text-primary flex flex-row flex-wrap items-start md:gap-2 gap-1">
-              <span>{project.name}</span>
-              {project.highlight && <HighlightComponent />}
-              <span className="text-xs font-normal leading-7">{project.company !== undefined && `  [${project.company}]`}</span>
-            </span>
-          )}
-          {project.images.length > 0 && (
-            <Space direction="vertical" block>
-              <Swiper
-                indicator={(total, current) => <div className=" absolute top-1 right-1 bg-white bg-opacity-70 rounded-sm px-2 py-1 text-black ">{`${current + 1} / ${total}`}</div>}
-                defaultIndex={0}
-              >
-                {project.images.map((image, index) => (
-                  <Swiper.Item key={index}>
-                    <Image
-                      onClick={() => {
-                        // imageViewer(project.images, index + 1)
-                        setImages(project.images)
-                        setImageIndex(index)
-                        setVisible(true)
-                      }}
-                      priority
-                      src={`${ASSEST_PREFIX}${image}`}
-                      width={100}
-                      height={20}
-                      className="w-full"
-                      alt={''}
-                    />
-                  </Swiper.Item>
-                ))}
-              </Swiper>
-            </Space>
-          )}
-          <span className=" text-prmary text-opacity-80 font-light text-md ">{project.description}</span>
-          <span className=" text-xs font-light italic text-white text-opacity-80 self-end">
-            {project.startTime} - {project.endTime}
-          </span>
+          </div>
         </div>
       </div>
-    </div>
-  )
+    )
+  }
 
   const TagsComponent = ({ tags, position }: { tags?: string[]; position: string }) => (
     <div className={`flex my-1 flex-wrap gap-2 ${position === 'self-start' ? 'flex-row' : 'flex-row-reverse md:self-end self-start'}`}>
@@ -113,13 +173,39 @@ const Page: NextPageWithLayout = () => {
     </div>
   )
 
-  const ProjectItem = ({ project, index }: { project: PROJECT; index: number }) => (
-    <div key={index} className=" w-full flex flex-col relative">
-      <CenterComponent position={project.position} />
-      <CardComponent project={project} />
-      <TagsComponent tags={project.tags} position={project.position} />
-    </div>
-  )
+  const ProjectItem = ({ project, index }: { project: PROJECT; index: number }) => {
+    // const onMouseMove = () => {
+    //   console.log(index, mousePosition)
+    // }
+
+    // const mouseEnterHandler = () => {
+    //   console.log(index, 'mouseEnterHandler')
+    //   window.addEventListener('mousemove', onMouseMove)
+    // }
+
+    // const mouseLeaveHandler = () => {
+    //   console.log(index, 'mouseLeaveHandler')
+    //   window.removeEventListener('mousemove', onMouseMove)
+    // }
+
+    // useEffect(() => {
+    //   console.log(index, 'addEventListener')
+    //   window.addEventListener('mouseenter', mouseEnterHandler)
+
+    //   return () => {
+    //     console.log(index, 'removeEventListener')
+    //     window.removeEventListener('mouseenter', mouseLeaveHandler)
+    //   }
+    // }, [])
+
+    return (
+      <div key={index} className="project-item">
+        <CenterComponent position={project.position} />
+        <CardComponent project={project} index={index} />
+        <TagsComponent tags={project.tags} position={project.position} />
+      </div>
+    )
+  }
 
   const [company, setCompany] = useState<string[]>([])
   const [tag, setTag] = useState<string[]>([])

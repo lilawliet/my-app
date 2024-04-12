@@ -54,6 +54,12 @@ export const Header = ({}) => {
       href: `${ASSEST_PREFIX}/projects`,
     },
     {
+      name: 'Resume',
+      // href: `${ASSEST_PREFIX}/resume`,
+      href: 'https://mxvfurm2ssn.feishu.cn/docx/OSZ1dr0fLoS8DAx4su5cHPd0n1f?from=from_copylink',
+      target: '_blank',
+    },
+    {
       name: 'About me',
       href: `${ASSEST_PREFIX}/about`,
     },
@@ -92,7 +98,7 @@ export const Header = ({}) => {
           ></Image>
 
           {tabs.map((tab, index) => (
-            <a className="text-secondary hover:text-primary md:text-base text-sm font-medium" href={tab.href} key={index}>
+            <a className="text-secondary hover:text-primary md:text-base text-sm font-medium" href={tab.href} key={index} target={tab.target ?? '_self'}>
               {t(tab.name)}
             </a>
           ))}
