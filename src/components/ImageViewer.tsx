@@ -3,6 +3,8 @@ import React from 'react'
 import { PhotoSlider } from 'react-image-previewer'
 import { CloseButton, SlideToolbar } from 'react-image-previewer/ui'
 
+import { ASSEST_PREFIX } from '@/constant/config'
+
 import { useGlobalState } from '../store/global/hooks'
 import { globalActions } from '../store/global/reducer'
 import { useAppDispatch } from '../store/hooks'
@@ -32,7 +34,7 @@ export const ImageViewer = () => {
             </>
           )
         }}
-        images={global.images.map((item) => ({ src: item, key: item }))}
+        images={global.images.map((item) => ({ src: `${ASSEST_PREFIX}${item}`, key: item }))}
         visible={global.images?.length > 0}
         onClose={() => dispatch(globalActions.setImages([]))}
         index={global.imagesIndex}
