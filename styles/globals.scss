@@ -3,7 +3,7 @@
 @tailwind utilities;
 @import './animation';
 
-body * {
+body *:not(svg, path, label) {
   color: var(--color-text-primary);
 }
 
