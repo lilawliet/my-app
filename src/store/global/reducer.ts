@@ -10,7 +10,8 @@ export type GlobalState = {
   version: string
   language: LANGUAGE
   images: string[]
-  imageIndex: number
+  imagesIndex: number
+  imagesVisible: boolean
   theme: THEME
   // messages: ChatCompletionResponseMessage[] // chatGPT 上下文
 }
@@ -19,7 +20,8 @@ const initialState: GlobalState = {
   version: process.env.NEXT_PUBLIC_VERSION,
   language: process.env.NEXT_PUBLIC_LOCALE as LANGUAGE,
   images: [],
-  imageIndex: 1,
+  imagesIndex: 1,
+  imagesVisible: false,
   theme: 'light',
   // messages: [],
 }
@@ -50,7 +52,11 @@ const slice = createSlice({
     },
     setImagesIndex(state, action: { payload: number }) {
       const { payload } = action
-      state.imageIndex = payload
+      state.imagesIndex = payload
+    },
+    setImagesVisible(state, action: { payload: boolean }) {
+      const { payload } = action
+      state.imagesVisible = payload
     },
     setTheme(state, action: { payload: THEME }) {
       const { payload } = action

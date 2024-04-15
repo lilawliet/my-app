@@ -1,5 +1,3 @@
-import { Popover } from 'antd-mobile'
-import { Action } from 'antd-mobile/es/components/popover'
 import Image from 'next/image'
 import React, { useEffect, useMemo, useState } from 'react'
 import { useTranslation } from 'react-i18next'
@@ -65,23 +63,18 @@ export const Header = ({}) => {
     // },
   ]
 
-  const themes: Action[] = [
-    {
-      key: 'light',
-      icon: <ThemeLightComponent width={18} height={18} color="black" />,
-      text: <span className="text-black">{t('Light')}</span>,
-    },
-    {
-      key: 'dark',
-      icon: <ThemeDarkComponent width={18} height={18} color="black" />,
-      text: <span className="text-black">{t('Dark')}</span>,
-    },
-    // {
-    //   key: 'system',
-    //   icon: <ThemeSystemComponent width={18} height={18} color="black" />,
-    //   text: <span className="text-black">{t('System')}</span>,
-    // },
-  ]
+  // const themes: Action[] = [
+  //   {
+  //     key: 'light',
+  //     icon: <ThemeLightComponent width={18} height={18} color="black" />,
+  //     text: <span className="text-black">{t('Light')}</span>,
+  //   },
+  //   {
+  //     key: 'dark',
+  //     icon: <ThemeDarkComponent width={18} height={18} color="black" />,
+  //     text: <span className="text-black">{t('Dark')}</span>,
+  //   },
+  // ]
 
   return (
     <div className="md:h-20 h-16 md:px-8 px-4 bg-gradient-to-b from-body-bottom to-body  bg-opacity-80 backdrop-blur-lg  fixed top-0 w-full z-10 ">
@@ -105,17 +98,23 @@ export const Header = ({}) => {
         </div>
 
         <div className=" flex flex-row gap-4 ">
-          <Popover.Menu actions={themes} placement="bottom-start" onAction={(node) => updateThemeHandler(node.key as any as THEME)} trigger="click">
-            <>
-              {global.theme === 'light' ? (
-                <ThemeLightComponent width={24} height={24} />
-              ) : global.theme === 'dark' ? (
-                <ThemeDarkComponent width={24} height={24} />
-              ) : (
-                <ThemeSystemComponent width={24} height={24} />
-              )}
-            </>
-          </Popover.Menu>
+          {/* <Popover.Menu actions={themes} placement="bottom-start" onAction={(node) => updateThemeHandler(node.key as any as THEME)} trigger="click">
+            {global.theme === 'light' ? (
+              <ThemeLightComponent width={24} height={24} />
+            ) : global.theme === 'dark' ? (
+              <ThemeDarkComponent width={24} height={24} />
+            ) : (
+              <ThemeSystemComponent width={24} height={24} />
+            )}
+          </Popover.Menu> */}
+          {global.theme === 'light' ? (
+            <ThemeLightComponent width={24} height={24} onClick={() => updateThemeHandler('dark')} />
+          ) : global.theme === 'dark' ? (
+            <ThemeDarkComponent width={24} height={24} onClick={() => updateThemeHandler('light')} />
+          ) : (
+            <ThemeSystemComponent width={24} height={24} onClick={() => updateThemeHandler('dark')} />
+          )}
+
           <I18nComponent width={24} height={24} onClick={i18nClickHandler} language={i18n.language as LANGUAGE} />
           <GithubComponent
             width={24}

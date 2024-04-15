@@ -1,5 +1,7 @@
-import { ImageViewer as _ImageViewer } from 'antd-mobile'
+// import { ImageViewer as _ImageViewer } from 'antd-mobile'
 import React from 'react'
+import { PhotoSlider } from 'react-image-previewer'
+import { CloseButton, SlideToolbar } from 'react-image-previewer/ui'
 
 import { useGlobalState } from '../store/global/hooks'
 import { globalActions } from '../store/global/reducer'
@@ -11,16 +13,31 @@ export const ImageViewer = () => {
 
   return (
     <>
-      {global.images?.length > 0 && (
+      {/* {global.images?.length > 0 && (
         <_ImageViewer.Multi
           images={global.images}
           visible={global.images?.length > 0}
-          defaultIndex={global.imageIndex}
+          defaultIndex={global.imagesIndex}
           onClose={() => {
             dispatch(globalActions.setImages([]))
           }}
         />
-      )}
+      )} */}
+      <PhotoSlider
+        overlayRender={(props) => {
+          return (
+            <>
+              <SlideToolbar {...props} items={['arrowLeft', 'countText', 'arrowRight', 'download']} />
+              <CloseButton onClick={props.onClose} />
+            </>
+          )
+        }}
+        images={global.images.map((item) => ({ src: item, key: item }))}
+        visible={global.images?.length > 0}
+        onClose={() => dispatch(globalActions.setImages([]))}
+        index={global.imagesIndex}
+        onIndexChange={(idx) => dispatch(globalActions.setImagesIndex(idx))}
+      />
     </>
   )
 }

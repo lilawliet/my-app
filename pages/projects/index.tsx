@@ -1,4 +1,4 @@
-import { ImageViewer as _ImageViewer, Space, Swiper } from 'antd-mobile'
+import { Grid } from 'antd-mobile'
 import _ from 'lodash'
 import Head from 'next/head'
 import Image from 'next/image'
@@ -7,67 +7,77 @@ import { useTranslation } from 'react-i18next'
 
 import { ASSEST_PREFIX } from '@/constant/config'
 import { Company, PROJECT, Projects, Tags } from '@/constant/projects'
+import { ImageViewer } from '@/src/components/ImageViewer'
 import Notification from '@/src/components/Notification'
 import LinkComponent from '@/src/components/Svgs/LinkComponent'
 import useMousePosition from '@/src/hooks/useMousePosition'
 import { useOpenUrl } from '@/src/hooks/useOpenUrl'
 import Layout from '@/src/layouts/Base'
+import { globalActions } from '@/src/store/global/reducer'
+import { useAppDispatch } from '@/src/store/hooks'
 
 import { NextPageWithLayout } from '../_app'
 
 const title = 'Projects'
+
+const CenterComponent = /* 画出卡片的中线 */ ({ position }: { position: string }) => (
+  <div className="project-item-center">
+    {position === 'self-start' ? <div className="project-timeline-left"></div> : <div className="w-10"></div>}
+
+    <div className="w-[2px] h-[2px] rounded bg-border-soft"></div>
+    {position === 'self-end' ? <div className="project-timeline-right"></div> : <div className="w-10"></div>}
+  </div>
+)
+
+const TagsComponent = /* 卡片标签 */ ({ tags, position }: { tags?: string[]; position: string }) => (
+  <div className={`flex my-1 flex-wrap gap-2 ${position === 'self-start' ? 'flex-row' : 'flex-row-reverse md:self-end self-start'}`}>
+    {tags?.map((tag, index) => (
+      <div key={`tag-${index}`} className=" tag text-black">
+        {tag}
+      </div>
+    ))}
+  </div>
+)
 
 const Page: NextPageWithLayout = () => {
   const { t } = useTranslation()
   const openUrl = useOpenUrl()
   const mousePosition = useMousePosition()
 
-  const [images, setImages] = useState<string[]>([])
-  const [imageIndex, setImageIndex] = useState<number>(0)
-  const [visible, setVisible] = useState<boolean>(false)
-  const ImageViewer = () => (
-    <_ImageViewer.Multi
-      images={images.map((image) => `${ASSEST_PREFIX}${image}`)}
-      visible={visible}
-      defaultIndex={imageIndex}
-      onClose={() => {
-        setImages([])
-        setImageIndex(0)
-        setVisible(false)
-      }}
-    />
-  )
+  // const global = useGlobalState()
+  const dispatch = useAppDispatch()
+
+  // const [images, setImages] = useState<string[]>([])
+  // const [imagesIndex, setImageIndex] = useState<number>(0)
+  // const [visible, setVisible] = useState<boolean>(false)
+
+  // const ImageViewer = () => (
+  //   <_ImageViewer.Multi
+  //     images={images.map((image) => `${ASSEST_PREFIX}${image}`)}
+  //     visible={visible}
+  //     defaultIndex={imagesIndex}
+  //     onClose={() => {
+  //       setImages([])
+  //       setImageIndex(0)
+  //       setVisible(false)
+  //     }}
+  //   />
+  // )
 
   // const HighlightComponent = () => <StarComponent width={18} height={28} />
   const HighlightComponent = () => <div className=" text-sm leading-7">⭐</div>
-
-  const CenterComponent = ({ position }: { position: string }) => (
-    <div className=" z-20 self-center absolute top-1/2 flex-row items-center md:flex hidden">
-      {position === 'self-start' ? <div className="project-timeline-left"></div> : <div className="w-10"></div>}
-
-      <div className="w-[2px] h-[2px] rounded bg-border-soft"></div>
-      {position === 'self-end' ? <div className="project-timeline-right"></div> : <div className="w-10"></div>}
-    </div>
-  )
 
   const ROTATE_RATE = 12
 
   const [rotateXs, setRotateXs] = useState<number[]>(new Array(Projects.length).fill(0))
   const [rotateYs, setRotateYs] = useState<number[]>(new Array(Projects.length).fill(0))
 
-  const CardComponent = ({ index, project }: { index: number; project: PROJECT }) => {
+  const CardComponent = /* 卡片主体 */ ({ index, project }: { index: number; project: PROJECT }) => {
     const _itemRef = useRef<HTMLDivElement>(null)
-
-    // const [rotateX, setRotateX] = useState<number>(0)
-    // const [rotateY, setRotateY] = useState<number>(0)
-    // const rotateX = 0
 
     const onMouseOver = _.throttle(() => {
       if (!_itemRef.current) return
       if (!mousePosition.x || !mousePosition.y) return
-
-      // console.log(project.id, mousePosition)
-      // console.log(_itemRef.current?.getBoundingClientRect())
 
       const _rect = _itemRef.current?.getBoundingClientRect()
       const rotateY = ~~(((mousePosition.y - _rect.top) / _rect.height) * ROTATE_RATE - ROTATE_RATE / 2)
@@ -78,9 +88,6 @@ const Page: NextPageWithLayout = () => {
 
       rotateYs[index] = rotateY
       setRotateYs(rotateYs)
-
-      // setRotateY((mousePosition.y - _itemRef.current?.getBoundingClientRect().top) / 10)
-      // setRotateX((mousePosition.x - _itemRef.current?.getBoundingClientRect().left) / 10)
     }, 300)
 
     const onMouseOut = () => {
@@ -104,7 +111,7 @@ const Page: NextPageWithLayout = () => {
           boxShadow: `${rotateXs[index]}px ${rotateYs[index]}px 4px rgba(0,0,0,.5)`,
           transition: 'transform 150ms ease, box-shadow 150ms ease-in-out', // smooth transition
         }}
-        className={`card ${project.position === 'self-end' ? 'md:self-end' : 'md:self-start'} self-center`}
+        className={`item-card ${project.position === 'self-end' ? 'md:self-end' : 'md:self-start'} self-center`}
       >
         <div className="announce h-full flex-1 bg-red-700">
           <div className="card-content">
@@ -125,33 +132,28 @@ const Page: NextPageWithLayout = () => {
               </span>
             )}
             {project.images.length > 0 && (
-              <Space direction="vertical" block>
-                <Swiper
-                  indicator={(total, current) => (
-                    <div className=" absolute top-1 right-1 bg-white bg-opacity-70 rounded-sm px-2 py-1 text-black ">{`${current + 1} / ${total}`}</div>
-                  )}
-                  defaultIndex={0}
-                >
-                  {project.images.map((image, index) => (
-                    <Swiper.Item key={index}>
-                      <Image
-                        onClick={() => {
-                          // imageViewer(project.images, index + 1)
-                          setImages(project.images)
-                          setImageIndex(index)
-                          setVisible(true)
-                        }}
-                        priority
-                        src={`${ASSEST_PREFIX}${image}`}
-                        width={100}
-                        height={20}
-                        className="w-full"
-                        alt={''}
-                      />
-                    </Swiper.Item>
-                  ))}
-                </Swiper>
-              </Space>
+              <Grid columns={3} gap={8}>
+                {project.images.slice(0, 3).map((image, index) => (
+                  <Grid.Item key={image}>
+                    <Image
+                      onClick={() => {
+                        dispatch(globalActions.setImages(project.images))
+                        dispatch(globalActions.setImagesIndex(index))
+                        dispatch(globalActions.setImagesVisible(true))
+                        // setImages(project.images)
+                        // setImageIndex(index)
+                        // setVisible(true)
+                      }}
+                      priority
+                      src={`${ASSEST_PREFIX}${image}`}
+                      width={100}
+                      height={20}
+                      className="w-full"
+                      alt={''}
+                    />
+                  </Grid.Item>
+                ))}
+              </Grid>
             )}
             <span className=" text-prmary text-opacity-80 font-light text-md ">{project.description}</span>
             <span className=" text-xs font-light italic text-white text-opacity-80 self-end">
@@ -163,41 +165,7 @@ const Page: NextPageWithLayout = () => {
     )
   }
 
-  const TagsComponent = ({ tags, position }: { tags?: string[]; position: string }) => (
-    <div className={`flex my-1 flex-wrap gap-2 ${position === 'self-start' ? 'flex-row' : 'flex-row-reverse md:self-end self-start'}`}>
-      {tags?.map((tag, index) => (
-        <div key={`tag-${index}`} className=" tag text-black">
-          {tag}
-        </div>
-      ))}
-    </div>
-  )
-
   const ProjectItem = ({ project, index }: { project: PROJECT; index: number }) => {
-    // const onMouseMove = () => {
-    //   console.log(index, mousePosition)
-    // }
-
-    // const mouseEnterHandler = () => {
-    //   console.log(index, 'mouseEnterHandler')
-    //   window.addEventListener('mousemove', onMouseMove)
-    // }
-
-    // const mouseLeaveHandler = () => {
-    //   console.log(index, 'mouseLeaveHandler')
-    //   window.removeEventListener('mousemove', onMouseMove)
-    // }
-
-    // useEffect(() => {
-    //   console.log(index, 'addEventListener')
-    //   window.addEventListener('mouseenter', mouseEnterHandler)
-
-    //   return () => {
-    //     console.log(index, 'removeEventListener')
-    //     window.removeEventListener('mouseenter', mouseLeaveHandler)
-    //   }
-    // }, [])
-
     return (
       <div key={index} className="project-item">
         <CenterComponent position={project.position} />
