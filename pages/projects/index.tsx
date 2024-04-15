@@ -1,5 +1,4 @@
 import { Grid } from 'antd-mobile'
-import _ from 'lodash'
 import Head from 'next/head'
 import Image from 'next/image'
 import React, { ReactElement, useRef, useState } from 'react'
@@ -10,7 +9,6 @@ import { Company, PROJECT, Projects, Tags } from '@/constant/projects'
 import { ImageViewer } from '@/src/components/ImageViewer'
 import Notification from '@/src/components/Notification'
 import LinkComponent from '@/src/components/Svgs/LinkComponent'
-import useMousePosition from '@/src/hooks/useMousePosition'
 import { useOpenUrl } from '@/src/hooks/useOpenUrl'
 import Layout from '@/src/layouts/Base'
 import { globalActions } from '@/src/store/global/reducer'
@@ -42,7 +40,8 @@ const TagsComponent = /* 卡片标签 */ ({ tags, position }: { tags?: string[];
 const Page: NextPageWithLayout = () => {
   const { t } = useTranslation()
   const openUrl = useOpenUrl()
-  const mousePosition = useMousePosition()
+
+  // const mousePosition = useMousePosition()
 
   // const global = useGlobalState()
   const dispatch = useAppDispatch()
@@ -67,48 +66,48 @@ const Page: NextPageWithLayout = () => {
   // const HighlightComponent = () => <StarComponent width={18} height={28} />
   const HighlightComponent = () => <div className=" text-sm leading-7">⭐</div>
 
-  const ROTATE_RATE = 12
+  // const ROTATE_RATE = 12
 
-  const [rotateXs, setRotateXs] = useState<number[]>(new Array(Projects.length).fill(0))
-  const [rotateYs, setRotateYs] = useState<number[]>(new Array(Projects.length).fill(0))
+  // const [rotateXs, setRotateXs] = useState<number[]>(new Array(Projects.length).fill(0))
+  // const [rotateYs, setRotateYs] = useState<number[]>(new Array(Projects.length).fill(0))
 
   const CardComponent = /* 卡片主体 */ ({ index, project }: { index: number; project: PROJECT }) => {
     const _itemRef = useRef<HTMLDivElement>(null)
 
-    const onMouseOver = _.throttle(() => {
-      if (!_itemRef.current) return
-      if (!mousePosition.x || !mousePosition.y) return
+    // const onMouseOver = _.throttle(() => {
+    //   if (!_itemRef.current) return
+    //   if (!mousePosition.x || !mousePosition.y) return
 
-      const _rect = _itemRef.current?.getBoundingClientRect()
-      const rotateY = ~~(((mousePosition.y - _rect.top) / _rect.height) * ROTATE_RATE - ROTATE_RATE / 2)
-      const rotateX = ~~(((mousePosition.x - _rect.left) / _rect.width) * ROTATE_RATE - ROTATE_RATE / 2)
+    //   const _rect = _itemRef.current?.getBoundingClientRect()
+    //   const rotateY = ~~(((mousePosition.y - _rect.top) / _rect.height) * ROTATE_RATE - ROTATE_RATE / 2)
+    //   const rotateX = ~~(((mousePosition.x - _rect.left) / _rect.width) * ROTATE_RATE - ROTATE_RATE / 2)
 
-      rotateXs[index] = rotateX
-      setRotateXs(rotateXs)
+    //   rotateXs[index] = rotateX
+    //   setRotateXs(rotateXs)
 
-      rotateYs[index] = rotateY
-      setRotateYs(rotateYs)
-    }, 300)
+    //   rotateYs[index] = rotateY
+    //   setRotateYs(rotateYs)
+    // }, 300)
 
-    const onMouseOut = () => {
-      rotateXs[index] = 0
-      setRotateXs(rotateXs)
+    // const onMouseOut = () => {
+    //   rotateXs[index] = 0
+    //   setRotateXs(rotateXs)
 
-      rotateYs[index] = 0
-      setRotateYs(rotateYs)
-    }
+    //   rotateYs[index] = 0
+    //   setRotateYs(rotateYs)
+    // }
 
     return (
       <div
         key={`card-${index}`}
         ref={_itemRef}
-        onMouseOver={onMouseOver}
-        onMouseOut={onMouseOut}
-        onMouseLeave={onMouseOut}
+        // onMouseOver={onMouseOver}
+        // onMouseOut={onMouseOut}
+        // onMouseLeave={onMouseOut}
         style={{
           border: 'none',
-          transform: `rotateX(${rotateXs[index]}deg) rotateY(${rotateYs[index]}deg)`,
-          boxShadow: `${rotateXs[index]}px ${rotateYs[index]}px 4px rgba(0,0,0,.5)`,
+          // transform: `rotateX(${rotateXs[index]}deg) rotateY(${rotateYs[index]}deg)`,
+          // boxShadow: `${rotateXs[index]}px ${rotateYs[index]}px 4px rgba(0,0,0,.5)`,
           transition: 'transform 150ms ease, box-shadow 150ms ease-in-out', // smooth transition
         }}
         className={`item-card ${project.position === 'self-end' ? 'md:self-end' : 'md:self-start'} self-center`}
